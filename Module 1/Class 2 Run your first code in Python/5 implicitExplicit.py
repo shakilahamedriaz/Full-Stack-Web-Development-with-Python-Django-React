@@ -1,4 +1,4 @@
-#implicit : automatically python will convert the data type
+## implicit : automatically python will convert the data type
 a = 10;
 print(type(a))    # <class 'int'>
 
@@ -8,7 +8,7 @@ print(type(b))    # <class 'float'>
 #output : 20.15
 
 
-#explicit : we need to convert the data type
+## explicit : we need to convert the data type
 
 a = "10"
 print(type(a))    # <class 'str'>

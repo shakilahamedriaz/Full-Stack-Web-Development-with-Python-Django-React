@@ -13,6 +13,10 @@ print("Total", sumof_tow_number)
 a = int(input("Enter first number : "))
 b = int(input("Enter second number : "))
 
+#x = int(x) #convert string to integer
+#y = int(y) #convert string to integer
+
+
 sumof_two = a + b
 print("Total", sumof_two)
 
