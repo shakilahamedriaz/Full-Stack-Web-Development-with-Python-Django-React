@@ -1,10 +1,10 @@
-# **بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ**  
+
 ## **Bismillah ir-Rahman ir-Raheem**
 # Full Stack Web Development with Python, Django & React
 
 This repository showcases a **Full Stack Web Development** project that integrates **Python**, **Django**, and **React** to build a modern, interactive web application. The application follows the **REST API** architecture, leveraging **Django REST Framework (DRF)** for backend development and **React** for the frontend, creating a scalable and efficient solution. The project features user authentication, an interactive UI, and API integration between the frontend and backend.
 
-## 🚀 Key Technologies
+##  Key Technologies
 
 ### Backend:
 - **Django**: A high-level Python web framework that encourages rapid development and clean, pragmatic design.
@@ -25,7 +25,7 @@ This repository showcases a **Full Stack Web Development** project that integrat
 - **Docker**: Containerizes the application to ensure consistency across different environments.
 - **Heroku / Vercel**: Cloud platforms for deployment of the backend and frontend.
 
-## 🔹 Features
+##  Features
 
 - **User Authentication & Authorization**: Implemented JWT-based authentication for secure user login and registration.
 - **RESTful API**: Built using Django REST Framework, providing robust and flexible API endpoints for the frontend to interact with.
