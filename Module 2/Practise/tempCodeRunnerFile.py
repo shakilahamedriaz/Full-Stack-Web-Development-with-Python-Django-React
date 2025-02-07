@@ -1,1 +1,2 @@
-#Decimal to string
+
+print(new_time)
