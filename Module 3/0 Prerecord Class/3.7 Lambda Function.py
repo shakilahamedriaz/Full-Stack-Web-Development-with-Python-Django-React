@@ -40,7 +40,6 @@ print(sorted_student)
 # [('Fahim', 30), ('Rahim', 60), ('Karim', 80)]
 
 
-
 ##########            map(), filter(), reduce()     ##################
 
 
@@ -62,8 +61,6 @@ print(sq_nums)
 
 
 
-
-
 # 2*** filter()
 # Purpose: Filters elements from an iterable based on a function that returns a boolean value. It only keeps elements that return True.
 # Use Case: When you want to filter out elements that don't meet a condition
@@ -72,7 +69,6 @@ listhere = [1,2,3,4,5,6]
 even = list(filter(lambda x: x%2 == 0, listhere))
 print(even)
 # [2, 4, 6]
-
 
 
 
