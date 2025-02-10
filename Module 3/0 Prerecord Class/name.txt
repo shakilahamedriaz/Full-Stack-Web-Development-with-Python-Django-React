@@ -1,0 +1,10 @@
+Hello world
+I am writing in a file
+this is for testing
+
+from here ======
+I am appending in a file
+Check this is for testing
+
+I love python
+but i know c, c++, java , oop ,system design
