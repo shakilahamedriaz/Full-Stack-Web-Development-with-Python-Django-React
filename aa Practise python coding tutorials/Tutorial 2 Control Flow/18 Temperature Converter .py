@@ -12,7 +12,7 @@ def convert_temperatures(temperatures, val):
         elif val == "C":
             converted.append((temp - 32) * 5/9)
         else:
-            raise ValueError("Invalid conversatin type")
+            raise ValueError("Invalid conversion type. Use 'F' for Fahrenheit or 'C' for Celsius.")
 
     return converted
 
@@ -20,11 +20,8 @@ def convert_temperatures(temperatures, val):
 
 temperatures = [0, 100, 37, -40]
 
-try:
-    val = input("Enter 'C' to convert to Celsius or 'F' to convert to Fahrenheit: ").strip().upper()
-    ans = convert_temperatures(temperatures, val)
+val = input("Enter 'C' to convert to Celsius or 'F' to convert to Fahrenheit: ").strip().upper()
+ans = convert_temperatures(temperatures, val)
 
-    print(f"The converted {val} temperatures are : ", ans)
+print(f"The converted {val} temperatures are : ", ans)
 
-except ValueError as e:
-    print(f"Error: {e}")
