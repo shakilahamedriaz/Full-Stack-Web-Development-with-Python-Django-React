@@ -1,4 +1,4 @@
-# Define a class named Car
+
 class Car:
     def __init__(self):  # Constructor method to initialize attributes
         self.brand = ""  # Initialize brand as an empty string
