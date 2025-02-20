@@ -3,36 +3,22 @@ class Employee:
 
     def __init__(self, name, salary):
         self.name = name
-        self._salary = salary #by convention, _variable name eta dhora hoy private variable, but logially eta priate hoy na
+        self._salary = salary  
 
-    
-
-    def get_salary(self, password):
-        if password == "admin":
-            print(self._salary)
-        else:
-            print("Invalid Access!!")
+    @property  # Getter method (Read-only access)
+    def salary(self):  # Getter method
+        return self._salary
 
 
-
-    def set_salary(self, password, salary):
-        if password == "admin":
-            self._salary = salary
-            print(f"New Salary : {self._salary}")
-        else:
-            print("Invalid Access!!!")
+    @salary.setter  # Setter method (Modifies _salary)
+    def salary(self, nes_salary):  # Setter method (Fixed)
+        self._salary = nes_salary  # Correct assignment
 
 
 
 
-ob1 = Employee("Rahim", 30000)
-bo2 = Employee("Karim", 50000)
+ob1 = Employee("Shakil", 100000000000)
+print(ob1.salary)  # ✅ Calls getter method
 
-#ob1._salary = 60000
-
-#print(ob1._salary)
-#output: 60000 
-
-
-ob1.get_salary("admin")
-ob1.set_salary("admin", 90000)
+ob1.salary = 50000  # ✅ Calls setter method
+print(ob1.salary)  # ✅ Output: 50000
