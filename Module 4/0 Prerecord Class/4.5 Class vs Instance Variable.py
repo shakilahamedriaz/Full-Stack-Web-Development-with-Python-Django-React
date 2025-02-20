@@ -1,20 +1,27 @@
+"""
+1️⃣ Class
+A blueprint for creating objects.
+Defines class variables (shared across all instances).
+2️⃣ Instance
+A specific object created from a class.
+Has instance variables (unique to each object).
+
+"""
+
+
+
 class School:
-    School_name = "Abc High Shcool"  # class variable
+    School_name = "Abc High School"  # Class variable (shared by all instances)
 
     def __init__(self, name):
-        self.student_name = name    #instance variable
+        self.student_name = name  # Instance variable (unique for each student)
 
-
-
-
-#class variable prottekt ta object er jonne same thakbe,but instance variable unique thakbe
+# Creating two instances (objects) of the School class
 sc1 = School("Rahim")
 sc2 = School("Karim")
 
-#sc1.School_name = "KN High School"
-#School.School_name = "All High School"
+print(sc1.School_name)  # Output: Abc High School (from class variable)
+print(sc1.student_name) # Output: Rahim (from instance variable)
 
-print(sc1.School_name)
-print(sc1.student_name)
-
-print(sc2.School_name, sc2.student_name)
+print(sc2.School_name, sc2.student_name) 
+# Output: Abc High School Karim (same class variable, different instance variable)
