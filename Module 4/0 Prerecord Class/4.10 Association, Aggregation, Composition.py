@@ -65,9 +65,11 @@ class Univeristy:
 
 print("Aggregation: ")
 
+
 uni1 = Univeristy("Daffodil International University")
 dep1 = Department("Software Engineering")
 dep2 = Department("Computer Science Department")
+
 
 
 uni1.add_department(dep1)
