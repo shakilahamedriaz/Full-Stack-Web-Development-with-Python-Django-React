@@ -1,2 +1,3 @@
 
-        self.breadth = breadth
+        self.cpu = cpu
+        return self
