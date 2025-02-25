@@ -1,2 +1,2 @@
 
-        self.color = color
+        self.breadth = breadth
