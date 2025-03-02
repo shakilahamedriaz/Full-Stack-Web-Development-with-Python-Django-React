@@ -47,6 +47,21 @@ print(formatted_date4)
 #25/Mar/02 17:46:19
 
 
-formatted_date5 = current_time.strftime("%y/%b/%a %H:%M:%S")
+formatted_date5 = current_time.strftime("%y/%b/%d %a %H:%M:%S")
 print(formatted_date5)
-#25/Mar/Sun 17:47:34
+#25/Mar/02 Sun 23:35:44
+
+formatted_date6 = current_time.strftime("%y/%b/%a/%d %a %I:%M:%S")
+print(formatted_date6)
+#25/Mar/Sun/02 Sun 11:35:26
+
+formatted_date6 = current_time.strftime("%y/%b/%a/%d %a %I:%M:%S %p")
+print(formatted_date6)
+#25/Mar/Sun/02 Sun 11:35:26 PM
+
+
+print("ok")
+date_str = "25-12-2030  10:45:00"
+parsed_date = datetime.datetime.strptime(date_str,"%d-%m-%Y %H:%M:%S") #convert date time object
+print(parsed_date)
+#2030-12-25 10:45:0 
