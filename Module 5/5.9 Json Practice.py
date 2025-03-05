@@ -37,6 +37,7 @@ json_string = '{"name": "Rahim", "age": 30, "is_logget_int": true}' #quatation m
 python_dict = json.loads(json_string)
 
 
+
 print(python_dict)
 #output:
 #{'name': 'Rahim', 'age': 30, 'is_logget_int': True}
