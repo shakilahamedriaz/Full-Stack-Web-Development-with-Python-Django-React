@@ -1,0 +1,7 @@
+Table: collection of Related Data
+Row : A single recor in a table (diffrent data)
+Column: A field in a table (same data)
+
+  primary key(Pk): Unique identifier
+  foreign kay(fk): links tow tables
+  composite key: combination of two or more columns as kay

@@ -1,0 +1,13 @@
+#Data:
+Data - collection of facts, number, words, observations or other userful information
+example - Tamim, 25, dhaka
+
+
+#Information:
+Information - process Data
+example : Tamim is 25 years old and lives in dhaka
+
+
+#keynotes:
+-Data is unprocessed, while information is structured
+-Data needs to be analyze to become information

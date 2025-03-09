@@ -1,0 +1,41 @@
+##way of create a table:
+
+CREATE  TABLE products(
+    
+       product_id INT AUTO_INCREMENT PRIMARY KEY,
+       name VARCHAR(100) NOT NULL,
+       description TEXT,
+       price DECIMAL(10,2) NOT NULL,
+       stock INT NOT NULL,
+       create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    
+    );
+
+
+
+#way of insert values in a table:
+
+INSERT INTO products(name, description, price, stock)
+
+VALUES('Laptop', 'Dell laptop', '10000', '50'),
+      ('Mobile', 'Realme phone', '5000', '40'),
+      ('Monitor', 'Msi mp251', '60000', '50');
+
+
+
+##another example of create a table and insert value commands:
+CREATE TABLE University (
+    student_id INT AUTO_INCREMENT PRIMARY KEY,
+    department_name VARCHAR(200),
+    total_student INT,
+    average_cgpa DECIMAL(3,2),
+    semester_fees INT,
+    registration_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+INSERT INTO university (department_name, total_student, average_cgpa, semester_fees)
+VALUES
+    ('Swe', 5000, 3.50, 50000),
+    ('Cse', 6000, 3.33, 70000),
+    ('Bba', 2000, 3.12, 50000);

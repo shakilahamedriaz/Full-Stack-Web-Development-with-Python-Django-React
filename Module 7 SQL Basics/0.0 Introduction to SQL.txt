@@ -1,0 +1,33 @@
+# SQL (Structured Query Language) – Short Note
+# SQL is a language used to manage and manipulate databases. It helps in storing, retrieving, updating, and deleting data in relational databases.
+
+# Key SQL Commands (CRUD Operations)
+# ✅ CREATE – Adds new data (e.g., new users).
+# ✅ READ (SELECT) – Retrieves data from a table.
+# ✅ UPDATE – Modifies existing data.
+# ✅ DELETE – Removes data from a table.
+
+Basic SQL Syntax
+sql
+Copy
+Edit
+-- Create Table
+CREATE TABLE users (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    age INT
+);
+
+-- Insert Data
+INSERT INTO users (id, name, age) VALUES (1, 'Rahim', 30);
+
+-- Read Data
+SELECT * FROM users;
+
+-- Update Data
+UPDATE users SET age = 31 WHERE id = 1;
+
+-- Delete Data
+DELETE FROM users WHERE id = 1;
+
+#SQL is widely used in databases like MySQL, PostgreSQL, SQLite, and SQL Server. 🚀

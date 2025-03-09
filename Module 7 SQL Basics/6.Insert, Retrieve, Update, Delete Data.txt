@@ -1,0 +1,25 @@
+-- Insert multiple records into the 'products' table
+INSERT INTO products (name, description, price, stock)
+VALUES 
+    ('Laptop', 'Dell laptop', 10000, 50),
+    ('Mobile', 'Realme phone', 5000, 40),
+    ('Smartwatch', 'Apple Watch', 30000, 20);
+
+
+-- Retrieve all columns from the 'products' table
+SELECT * FROM products;
+
+
+-- Retrieve products where the price is greater than 50,000
+SELECT * FROM products WHERE price > 50000;
+
+
+-- Update the 'name' column where product_id is 6
+UPDATE products 
+SET name = 'Gaming Laptop' 
+WHERE product_id = 6;
+
+
+-- Delete records where stock is less than 30
+DELETE FROM products 
+WHERE stock < 30;

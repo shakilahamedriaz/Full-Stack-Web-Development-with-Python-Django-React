@@ -1,0 +1,18 @@
+#Database:
+-collection of structured information or Data
+-Help store, retrive, and manage data efficiently
+example: MySQL, SQL Server, MongoDB
+
+
+
+#Types of Database(RDBMS):
+1. Relational Database
+  -multiple tables
+  -structured
+  -uses tables
+  -example: MySQL, PostgreSQL, SQL Server
+
+
+#Non-Relational Database(NoSQL):
+  -stores data in key-value, document, or graph formats
+  -example:mongoDB, Firebase
