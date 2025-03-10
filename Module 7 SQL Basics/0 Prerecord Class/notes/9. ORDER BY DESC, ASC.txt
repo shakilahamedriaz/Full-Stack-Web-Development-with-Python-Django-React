@@ -1,0 +1,7 @@
+## descenging order
+SELECT *FROM students ORDER BY gpa DESC;
+
+## ascending order
+SELECT *FROM students ORDER BY gpa ASC;
+
+

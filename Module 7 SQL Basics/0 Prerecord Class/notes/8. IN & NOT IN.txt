@@ -1,0 +1,13 @@
+-- Retrieve students enrolled in course 101  
+SELECT * FROM students WHERE course_id IN (101);  
+
+
+-- Retrieve students not enrolled in course 101  
+SELECT * FROM students WHERE course_id NOT IN (101);
+
+
+-- Retrieve all student records  
+SELECT * FROM students;  
+
+-- Get product names from the products table  
+SELECT name AS product_name FROM products;  

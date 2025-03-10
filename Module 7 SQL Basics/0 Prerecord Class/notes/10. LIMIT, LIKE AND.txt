@@ -1,0 +1,6 @@
+## 4 ta records dekhabe
+SELECT *FROM students LIMIT 4;
+
+SELECT *FROM students WHERE last_name LIKE 'A%'
+
+SELECT *FROM students WHERE first_name LIKE '%l%'
