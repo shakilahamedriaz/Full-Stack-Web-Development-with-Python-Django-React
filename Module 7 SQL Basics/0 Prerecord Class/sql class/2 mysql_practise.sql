@@ -83,6 +83,7 @@ HAVING COUNT(*) > 1
 
 
 -- INNER JOIN (combines rows with matching values in both tables.)
+-- only common matches
 SELECT
     students.student_id,
     students.first_name,
@@ -95,6 +96,7 @@ ON students.course_id = courses.course_id
 
 
 -- LEFT JOIN
+-- left er sob ashbe + right er comman gula ashbe
 SELECT
     students.first_name,
     students.last_name,
@@ -129,7 +131,7 @@ FROM students
 LEFT JOIN courses
 ON students.course_id = courses.course_id
 
-UNION
+UNION --mysql dosen't support fulljoin, that's why we use UNION
 
 SELECT
     -- students.student_id,
