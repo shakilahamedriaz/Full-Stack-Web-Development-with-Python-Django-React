@@ -11,6 +11,7 @@ while True:
         break
     print("Bye bye!")
 
+
 # 2. Print function with different separators
 print("a", "b", "c")
 print("a", "b", "c", sep='')
