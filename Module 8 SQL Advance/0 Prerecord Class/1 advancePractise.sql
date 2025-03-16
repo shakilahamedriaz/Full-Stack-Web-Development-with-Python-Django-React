@@ -32,3 +32,51 @@ DROP Table univeristy
 DROP DATABASE database_name
 ;
 
+
+-- Constraints: rule that controls the data in a table to ensure accuracy and consistency
+
+-- NOT NULL
+            -- means that column cannot store Null values
+
+
+--UNIQUE 
+            -- Ensures all values in a column are distinct.
+
+
+--PRIMARY KEY 
+             --combination of NOT (NULL and UNIQUE). Uniquely identifies each row.
+
+
+CREATE TABLE ramadan (
+    id INT PRIMARY KEY,  -- Ensures each ID is unique
+    name VARCHAR(50) NOT NULL,  -- Name cannot be empty
+    email VARCHAR(100) UNIQUE,  -- No duplicate emails allowed
+);
+
+
+
+--FOREIGN KEY 
+             -- Links tables by referencing a primary key.
+
+
+--CHECK 
+       -- Validates values against a condition.
+
+CREATE TABLE students (
+    age INT CHECK (age >= 18)  -- Ensures age is at least 18
+);
+
+CREATE TABLE enrollments (
+    enroll_id INT PRIMARY KEY,
+    student_id INT,
+    FOREIGN KEY (student_id) REFERENCES students(id)  -- Links to students table
+);
+
+
+
+--DEFAULT 
+         -- Sets a default value if none is provided.
+
+CREATE TABLE students (
+    status VARCHAR(20) DEFAULT 'Active'  -- Sets 'Active' as the default value
+);
