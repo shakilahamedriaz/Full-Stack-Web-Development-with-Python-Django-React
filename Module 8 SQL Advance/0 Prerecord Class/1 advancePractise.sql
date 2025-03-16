@@ -14,6 +14,7 @@ RENAME TO uni
 RENAME TABLE uni TO Diu
 ;   --       old table        new table
 
+--comment
 
 
 --Drop column
