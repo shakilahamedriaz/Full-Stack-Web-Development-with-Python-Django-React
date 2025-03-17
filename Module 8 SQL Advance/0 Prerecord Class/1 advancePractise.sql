@@ -80,3 +80,28 @@ CREATE TABLE enrollments (
 CREATE TABLE students (
     status VARCHAR(20) DEFAULT 'Active'  -- Sets 'Active' as the default value
 );
+
+
+
+--correlated subqueirs and common  table expression(CTEs)
+--: they are two advanced techniques that help handle complex queries efficiently.
+
+
+--A correlated subquery
+  --: is a subquery that depends on the outer query and runs for each row.
+SELECT student_id, first_name, gpa  
+FROM students s  
+WHERE gpa > (SELECT AVG(gpa) FROM students WHERE course_id = s.course_id);
+
+
+
+--Common Table Expression (CTE):
+       -- is a temporary result set that can be referenced within a SELECT, INSERT, UPDATE, or DELETE statement.
+
+WITH HighGPA AS (
+    SELECT student_id, first_name, gpa  
+    FROM students  
+    WHERE gpa > 3.5
+)  
+SELECT * FROM HighGPA;
+-- Here, HighGPA is a CTE storing students with gpa > 3.5, making queries more readable.
