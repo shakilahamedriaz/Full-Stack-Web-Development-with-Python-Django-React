@@ -105,3 +105,10 @@ WITH HighGPA AS (
 )  
 SELECT * FROM HighGPA;
 -- Here, HighGPA is a CTE storing students with gpa > 3.5, making queries more readable.
+
+
+
+next topics are:
+ -- What are indexes, their types, and how they improve performance
+ -- Basics of ER Diagram
+ -- Designing a single vendor e commerce using ER Diagram

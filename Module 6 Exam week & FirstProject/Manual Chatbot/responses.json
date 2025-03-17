@@ -1,0 +1,71 @@
+{
+    "hello": "Hi there! How can I assist you today?",
+    "hi": "Hello! What can I do for you?",
+    "hey": "Hey! Need any help?",
+    "how are you": "I'm just a chatbot, but I'm doing great! What about you?",
+    
+    "bye": "Goodbye! Have a nice day!",
+    "goodbye": "Take care! See you soon!",
+    "see you": "See you later! Have a good day!",
+
+    "your name": "I am ChatPy, your personal assistant.",
+    "who are you": "I'm a chatbot created to assist you with various queries.",
+    "what is your purpose": "I am here to provide information and assistance!",
+    
+    "what is ai": "Artificial Intelligence (AI) is the simulation of human intelligence in machines.",
+    "define chatbot": "A chatbot is an AI program designed to simulate conversation with humans.",
+    "who created you": "I was created by a team of developers who love Python!",
+    
+    "what is python": "Python is a popular, high-level programming language known for its simplicity and versatility.",
+    "python data types": "Python has several data types: int, float, string, list, tuple, dict, and set.",
+    "difference between list and tuple": "Lists are mutable, meaning they can be changed, whereas tuples are immutable.",
+    "explain oop": "OOP (Object-Oriented Programming) is a paradigm that organizes code into objects with properties and behaviors.",
+    "what is a module in python": "A module is a file containing Python code that can be imported and used in other programs.",
+    "what is json": "JSON (JavaScript Object Notation) is a lightweight format for storing and exchanging data.",
+
+    "what is recursion": "Recursion is a method where a function calls itself to solve a problem in smaller parts.",
+    "difference between for and while loop": "For loops are used when the number of iterations is known, while loops run until a condition is met.",
+    
+    "current time": "I'm not connected to real-time data, but you can check your system clock!",
+    "current date": "Check your device for the current date!",
+    
+    "who is the president of usa": "You can check the latest information online for the current president.",
+    "who is the prime minister of bangladesh": "Sheikh Hasina is the Prime Minister of Bangladesh as of 2024.",
+    
+    "tell me a joke": "Why don't programmers like nature? Too many bugs!",
+    "tell me a fun fact": "Did you know? The first computer bug was an actual insect inside a computer!",
+    
+    "what is machine learning": "Machine learning is a branch of AI that enables computers to learn from data without being explicitly programmed.",
+    "what is deep learning": "Deep learning is a subset of machine learning that uses neural networks to analyze data patterns.",
+    "what is a neural network": "A neural network is a system of interconnected nodes inspired by the human brain to process data.",
+    
+    "how does google work": "Google uses complex algorithms and crawlers to index and rank web pages for search results.",
+    "what is the internet": "The Internet is a global network that connects millions of computers and devices.",
+    "what is cloud computing": "Cloud computing provides on-demand computing services over the Internet without direct user management.",
+    
+    "best programming language": "The best programming language depends on your needs! Python is great for AI, JavaScript for web development, and C++ for performance-heavy tasks.",
+    "best web development framework": "Django and Flask are great for Python, React and Angular for JavaScript.",
+    
+    "how to learn coding": "Start with Python or JavaScript, practice with small projects, and gradually work on more complex problems.",
+    "best way to learn python": "Practice daily, solve coding problems, read documentation, and build real-world projects.",
+    
+    "who is elon musk": "Elon Musk is a billionaire entrepreneur, CEO of Tesla and SpaceX.",
+    "who is bill gates": "Bill Gates is the co-founder of Microsoft and a philanthropist.",
+    
+    "what is the weather today": "I'm not connected to live data. You can check a weather website for updates!",
+    "how to check the weather": "You can check the weather using sites like weather.com or use Python APIs like OpenWeatherMap.",
+    
+    "what is the capital of france": "The capital of France is Paris.",
+    "what is the capital of japan": "The capital of Japan is Tokyo.",
+    
+    "how to stay healthy": "Eat balanced meals, exercise regularly, get enough sleep, and manage stress effectively.",
+    "benefits of drinking water": "Water helps regulate body temperature, keeps you hydrated, and improves overall health.",
+    
+    "what is blockchain": "Blockchain is a decentralized digital ledger used to record transactions securely.",
+    "what is bitcoin": "Bitcoin is a digital cryptocurrency that operates on a decentralized blockchain network.",
+    
+    "how does an airplane fly": "Airplanes fly using the principles of lift, thrust, drag, and weight.",
+    "how does a car engine work": "A car engine works by burning fuel in cylinders to create energy that moves the car.",
+    
+    "default": "Sorry, I didn't understand that. Can you try rephrasing?"
+}
