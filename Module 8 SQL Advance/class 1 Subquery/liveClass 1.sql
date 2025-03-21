@@ -1,0 +1,1 @@
+-- Unique, Default, Check, Foreign
