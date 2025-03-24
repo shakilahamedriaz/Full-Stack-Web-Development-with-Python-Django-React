@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="get">
+     <!-- POST → Used for sensitive data (e.g., passwords, personal info) -->
+     <!-- POST method submits data via the request body (not visible in the URL) -->
+
+     <!-- GET → Used for non-sensitive data (e.g., search queries) -->
+     <!-- GET method submits data via URL (visible in the address bar) -->
+
+        <label for="Username_id">Username:</label>
+        <input type="text" name="Username" placeholder="Enter your Username here" id="Username_id" required minlength="6" maxlength="12">  
+        
+        <br><br>
+
+        <label for="pass_id">Password:</label>
+        <input type="password" placeholder="Enter valid password here" id="pass_id">
+
+        <br><br>
+
+        
+        <label for="gender_id">Gender:</label>
+        <select name="Gender" id="gender_id"> 
+
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option> 
+
+        </select> 
+
+        <br><br>
+
+        <label for="Country_id">Country:</label>
+        <select name="Country" id="Country_id">
+
+            <optgroup label="Asia:">
+                <option value="Bangladesh">Bangladesh</option>
+                <option value="India">India</option>
+                <option value="Pakistan">Pakistan</option>
+                <option value="Nepal">Nepal</option>
+            </optgroup>
+
+            <optgroup label="Europe:">
+                <option value="Germany">Germany</option>
+                <option value="France">France</option>
+                <option value="Italy">Italy</option>
+                <option value="Switzerland">Switzerland</option>
+            </optgroup>
+
+        </select>
+
+
+        <br><br>
+
+        <label for="hobbies">Hobbies:</label>
+
+        <input type="checkbox" name="hobbies" value="Reading" id="Reading_id">
+        <label for="Reading_id">Reading</label>
+        <input type="checkbox" name="hobbies" value="Writing" id="Writing_id">
+        <label for="Writing_id">Writing</label>
+        <input type="checkbox" name="hobbies" value="Coding" id="Coding_id">
+        <label for="Coding_id">Coding</label>
+
+        <br><br>
+
+        <label for="meritalstatus">Marital Status:</label>
+        <input type="radio" name="meritalstatus" id="unmarried_id">
+        <label for="unmarried_id">Unmarried</label>
+
+        <input type="radio" name="meritalstatus" id="married_id">
+        <label for="married_id">Married</label>
+
+        <br><br>
+
+        <!--File Input: -->
+        <label for="idCard">Submit Your Id: </label>
+        <input type="file" name="idCard" id="idCard">
+
+        <br><br>
+
+        <label for="em_id">Email:</label>
+        <input type="email" name="email" id="em_id">
+
+        <br><br>
+         
+        <label for="nm_id">Chose a number:</label>
+        <input type="number" min="1" max="10" id="nm_id">
+
+        <br><br>
+
+        <label for="range_id">Chose a range: </label>
+        <input type="range" name="range" id="range_id" >
+
+        <br><br>
+        
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+
+    </form>
+</body>
+</html>
