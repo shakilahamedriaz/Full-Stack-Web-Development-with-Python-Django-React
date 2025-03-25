@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+     <form action="">
+
+             <!--Normal input: -->
+             <label for="fname">First Name:</label>
+             <input type="text" name="fname" id="fname" placeholder="Enter your name" required>
+
+             <br><br>
+             
+             <label for="lname">Last Name:</label>
+             <input type="text" name="lname" id="lname" required>
+
+             <br><br>
+
+             <label for="email_id">Email Address:</label>
+             <input type="email" name="email" id="email_id">
+
+             <br><br>
+
+             <label for="phone">Phone:</label>
+             <input type="tel" name="phone" id="phone">
+
+             <br><br>
+
+             <!--Password: -->
+             <label for="pass_id">Password:</label>
+             <input type="password" name="password" id="pass_id">
+ 
+             <br><br>
+
+             <!--Radio button: -->
+             <label for="Gender">Gender:</label> <br>
+
+             <input type="radio" name="Gender" id="male_id" required>
+             <label for="male_id">Male</label> <br>
+
+             <input type="radio" name="Gender" id="female_id" required>
+             <label for="female_id">Female</label> <br>
+
+             <input type="radio" name="Gender" id="other_id" required>
+             <label for="other_id">Other</label>
+
+             <br><br>
+
+            <!-- Checkbox: -->
+            <label for="hobby">Hobby:</label>
+            <input type="checkbox" name="hobby" id="first_choice" value="coding">
+            <label for="first_choice">Coding</label>
+
+            <input type="checkbox" name="hobby" id="second_choice" value="reading">
+            <label for="second_choice">Reading</label>
+
+             <br><br>
+
+             <!--Select : -->
+             <label for="Country_id">Country:</label>
+             <select name="Country" id="Country_id">
+                <option value="usa">USA</option>
+                <option value="canada">Canada</option>
+                <option value="italy">Italy</option>
+                <option value="finland">Finland</option>
+                <option value="norway">Norway</option>
+                <option value="germany">Germany</option>
+             </select>
+
+             <br><br>
+
+             <!--Date: -->
+             <label for="d_id">Date of Birth:</label>
+             <input type="date" name="dob" id="d_id" required>
+
+             <br><br>
+
+             <!--Text Area: -->
+             <label for="textarea_id">Address:</label> <br>
+             <textarea name="address" id="textarea_id"></textarea>
+
+             <br><br>
+
+             <!--Color: -->
+             <label for="color_id">Color:</label>
+             <input type="color" name="Color" id="color_id">
+
+            <br><br>
+
+            <!--URL Input: -->
+            <label for="url_id">Website:</label>
+            <input type="url" name="website" id="url_id">
+
+            <br><br>
+
+            <!--Search Input: -->
+            <label for="search_id">Search:</label>
+            <input type="search" name="search" id="search_id">
+
+            <br><br>
+
+            <!--Time Input: -->
+            <label for="time_id">Select Time:</label>
+            <input type="time" name="time" id="time_id">
+
+            <br><br>
+
+            <!--Week Input: -->
+            <label for="week_id">Select Week:</label>
+            <input type="week" name="week" id="week_id">
+
+            <br><br>
+
+            <!--Month Input: -->
+            <label for="month_id">Select Month:</label>
+            <input type="month" name="month" id="month_id">
+
+            <br><br>
+
+            <!--Hidden Input: -->
+            <input type="hidden" name="user_id" value="12345">
+
+            <!--Data List: -->
+            <label for="city_id">Choose a city:</label>
+            <input list="cities" id="city_id" name="city">
+            <datalist id="cities">
+                <option value="New York">
+                <option value="Los Angeles">
+                <option value="Chicago">
+                <option value="Houston">
+                <option value="Miami">
+            </datalist>
+
+            <br><br>
+
+            <!--Progress Bar: -->
+            <label for="progress_id">Progress:</label>
+            <progress id="progress_id" value="30" max="100"></progress>
+
+            <br><br>
+
+            <!--Meter: -->
+            <label for="meter_id">Battery Level:</label>
+            <meter id="meter_id" min="0" max="100" value="65"></meter>
+
+            <br><br>
+
+            <!--Multiple File Uploads: -->
+            <label for="multi_file_id">Upload Multiple Files:</label>
+            <input type="file" name="files" id="multi_file_id" multiple>
+
+            <br><br>
+
+            <!--Submit: -->
+            <input type="submit" value="Submit">
+            <input type="reset" value="Reset all">
+     </form>
+    
+</body>
+</html>
