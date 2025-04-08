@@ -1,0 +1,9 @@
+#ok {
+    color: blue;
+    color: orangered; /*ctrl + space - all color, manually */
+
+    color: FF; /*hexa decimal color */
+    color: 00FF7F;
+    color rgb()
+}
+
