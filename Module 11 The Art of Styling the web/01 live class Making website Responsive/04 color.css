@@ -4,6 +4,10 @@
 
     color: FF; /*hexa decimal color */
     color: 00FF7F;
-    color rgb()
+    color: rgb(222, 53, 168); /*reg, green, blue */
+    color: rgba(222, 53, 168, .8); /*reg, green, blue,alpha */
+    background-color: aqua;
+    
+    
 }
 

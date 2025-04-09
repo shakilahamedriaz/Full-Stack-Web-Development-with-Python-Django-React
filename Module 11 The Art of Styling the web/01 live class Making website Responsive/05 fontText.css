@@ -1,0 +1,29 @@
+.text {
+
+    background-color: aqua;
+
+    font-size: 20px;
+    font-weight: bold;
+    font-weight: lighter;    
+    font-weight: normal;
+
+
+    font-style: italic;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
+    
+    font-family: 'Times New Roman', Times, serif;
+
+
+    text-align: center;
+    text-decoration: underline;
+    text-decoration: overline;
+
+    text-transform: uppercase;
+    line-height: 50px;
+
+    
+
+
+}
