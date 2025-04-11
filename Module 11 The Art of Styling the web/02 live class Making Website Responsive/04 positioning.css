@@ -1,0 +1,66 @@
+
+/* 
+ positionig:
+  -static, relateive, absolute, fixed, sticky
+  -topic to learn, stacking, context, z -index
+
+ */
+
+
+.container{
+    height: 300px;
+    width: 300px;
+    background-color: darkgrey;
+    border: 5px solid green;
+    position: relative;
+}
+
+
+.box{
+    width: 50px;
+    height: 50px;
+    box-sizing: border-box;
+
+}
+
+.box1{
+    background-color: red;
+}
+
+.box2{
+    background-color: aqua;
+
+    /* position: static;   */
+    /* -- by default location e thakbe */
+
+
+    /* position: relative; 
+    /* --just oy box niye play korbe, others kono boxe impact felbe na */
+    /* --je jaigai ache setar sapekkhe,  */
+    /* left: 50px; */
+    /* top: 20px; */
+    /* bottom: 20px; */ 
+
+    
+    /* position: fixed;
+    bottom: 20px;
+    right: 20px; */
+    
+    /* position: sticky;
+    top: 10px; */
+
+
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+
+    
+}
+
+.box3{
+    background-color: blue;
+    height: 70px;
+    width: 70px;
+
+}
