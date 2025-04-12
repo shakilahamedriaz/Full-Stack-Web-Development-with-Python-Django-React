@@ -1,0 +1,208 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.container {
+    height: 300px;
+    width: 300px;
+    background: #ddd;
+    border: 5px solid green;
+
+    /* position: relative; */
+
+
+    /* display: flex; */
+    /* flex-direction: column; */
+
+    /* justify-content: space-evenly; */
+    /* align-items: center; */
+
+    /* gap: 10px; */
+
+    /* flex-wrap: wrap;
+    align-content: space-evenly; */
+
+
+    display: grid;
+
+    /* grid-template-columns: repeat(3, 1fr); */
+    /* grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 100px 100px 100px 100px; */
+
+    /* gap: 10px; */
+
+
+    grid-template-areas:
+        "header header header"
+        "part1 part2 part3"
+        "footer footer footer";
+}
+
+
+.box {
+    width: 50px;
+    height: 50px;
+}
+
+.box1 {
+    background-color: red;
+    grid-area: header;
+}
+
+.box2 {
+    /* opacity: 0.2; */
+    background-color: aqua;
+    /* position: static; */
+    /* top, bottom, left, right */
+
+    /* position: relative;
+    left: 10px;
+    top: 20px; */
+
+    /* position: fixed;
+    bottom: 20px;
+    right: 20px; */
+
+    /* position: sticky;
+    top: 10px; */
+
+    /* position: absolute;
+    top: 0;
+    right: 0; */
+    grid-area: part1;
+}
+
+.box3 {
+    background-color: blue;
+    /* order: 1; */
+    grid-area: part2;
+}
+
+.box4 {
+    background-color: green;
+    /* order: 3; */
+    grid-area: part3;
+}
+
+.box5 {
+    background-color: yellow;
+    /* order: 2; */
+    grid-area: footer;
+}
+
+.box6 {
+    background-color: orange;
+}
+
+.box7 {
+    background-color: purple;
+}
+
+.box8 {
+    background-color: pink;
+}
+
+.box9 {
+    background-color: brown;
+}
+
+.box10 {
+    background-color: gray;
+}
+
+.box11 {
+    background-color: lightblue;
+}
+
+.box12 {
+    background-color: lightgreen;
+}
+
+
+
+/* .nice-box {
+    height: 200px;
+    width: 200px;
+    background-color: tomato;
+
+    margin: 100px;
+}
+
+@media screen and (min-width: 600px) {
+    .nice-box {
+        background-color: blue;
+    }
+} */
+
+
+
+.container-nice-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.nice-box {
+    height: 200px;
+    width: 200px;
+}
+
+.nice-box-1 {
+    background-color: red;
+
+    animation: colorSwitch 3s alternate infinite;
+
+    /* transition: background-color 1s ease-in-out; */
+}
+
+@keyframes colorSwitch {
+    0% {
+        background-color: red;
+    }
+
+    50% {
+        background-color: blue;
+    }
+
+    100% {
+        background-color: green;
+    }
+}
+
+
+.nice-box-1:hover {
+    background-color: aqua;
+}
+
+.nice-box-2 {
+    background-color: green;
+}
+
+.nice-box-3 {
+    background-color: blue;
+}
+
+.nice-box-4 {
+    background-color: yellow;
+}
+
+
+@media screen and (max-width: 600px) {
+    .container-nice-box {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .container-nice-box {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+
+.nice-box:last-child {
+    background-color: tomato;
+}

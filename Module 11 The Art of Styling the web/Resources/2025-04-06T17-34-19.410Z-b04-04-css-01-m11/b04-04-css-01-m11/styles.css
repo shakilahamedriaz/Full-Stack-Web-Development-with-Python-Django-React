@@ -1,0 +1,80 @@
+/* h1 {
+    color: green;
+}
+
+h3 {
+    color: red;
+} */
+
+
+/* #faokotha {
+    color: red;
+} */
+
+/* .middleclass {
+    color: blue;
+} */
+
+/*
+tag
+.class
+#id
+*/
+
+/* .middleclass {
+    color: tomato;
+}
+
+.upperclass {
+    color: goldenrod;
+    color: green;
+    color: blue;
+} */
+
+/* CSS Selector Specificity */
+
+
+.middleclass {
+    color: red;
+    color: #00FF7F;
+    color: rgb(222, 53, 168);
+    color: rgba(222, 53, 168, 1);
+
+    background-color: aqua;
+
+
+    font-size: 40px;
+    font-weight: normal;
+    font-style: normal;
+    font-family: 'Times New Roman', Times, serif;
+
+    /* text-align: right; */
+    text-decoration: None;
+    text-transform: uppercase;
+    /* line-height: 100px; */
+
+    border: 5px dotted red;
+    /* padding: 20px; */
+    padding: 10px;
+    margin: 20px;
+    /* line-height: 2; */
+}
+
+p {
+    line-height: 50px;
+
+
+    background-image: url(bg_image.jpg);
+    /* background-size: cover; */
+    background-position: center;
+    background-repeat: no-repeat;
+
+
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

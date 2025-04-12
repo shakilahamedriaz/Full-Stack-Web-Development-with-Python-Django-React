@@ -1,66 +1,93 @@
-
 /* 
- positionig:
-  -static, relateive, absolute, fixed, sticky
-  -topic to learn, stacking, context, z -index
+ Positioning in CSS:
 
- */
+ - static   : Default position. Elements flow naturally with the page layout.
+ - relative : Moves element *relative to its normal position*.
+ - absolute : Positions element *relative to the nearest positioned ancestor* (not static).
+ - fixed    : Positions element *relative to the browser window*; stays fixed on scroll.
+ - sticky   : Acts like relative until a scroll threshold is met, then acts like fixed.
+
+ Other key concepts:
+ - stacking context : Determines how elements are layered (stacked).
+ - z-index : Controls the vertical stacking order of elements.
+*/
 
 
-.container{
+/* Container with relative positioning
+   This becomes the positioning reference for any absolutely positioned child */
+   .container {
     height: 300px;
     width: 300px;
     background-color: darkgrey;
     border: 5px solid green;
-    position: relative;
+    position: relative; /* Makes it a reference for absolutely positioned children */
 }
 
 
-.box{
+/* Common box styles */
+.box {
     width: 50px;
     height: 50px;
     box-sizing: border-box;
-
 }
 
-.box1{
+
+/* Red box - normal static box */
+.box1 {
     background-color: red;
 }
 
-.box2{
+
+/* Aqua box - test different positioning styles here */
+.box2 {
     background-color: aqua;
 
-    /* position: static;   */
-    /* -- by default location e thakbe */
+    /* Uncomment one at a time to experiment */
 
+    /*
+    position: static;
+    // Default value. The element stays in the normal document flow.
+    */
 
-    /* position: relative; 
-    /* --just oy box niye play korbe, others kono boxe impact felbe na */
-    /* --je jaigai ache setar sapekkhe,  */
-    /* left: 50px; */
-    /* top: 20px; */
-    /* bottom: 20px; */ 
-
-    
-    /* position: fixed;
+    /*
+    position: relative;
+    // Moves the element relative to its original position.
+    // Does not affect surrounding elements.
+    left: 50px;
+    top: 20px;
     bottom: 20px;
-    right: 20px; */
-    
-    /* position: sticky;
-    top: 10px; */
+    */
 
+    /*
+    position: fixed;
+    // The element is fixed to the viewport. It does not move when scrolled.
+    bottom: 20px;
+    right: 20px;
+    */
+
+    /*
+    position: sticky;
+    // Behaves like relative until a scroll point is reached, then becomes fixed.
+    top: 10px;
+    */
 
     position: absolute;
+   /* // Positioned relative to the nearest positioned ancestor (.container in this case) */
     top: 10px;
     right: 10px;
-
-
-    
 }
 
-.box3{
+
+/* Blue box - another sibling to experiment stacking or layout */
+.box3 {
     background-color: blue;
     height: 70px;
     width: 70px;
-
 }
+
+
+
+/*
+learn : Stacking context, Z-index 
+
+*/

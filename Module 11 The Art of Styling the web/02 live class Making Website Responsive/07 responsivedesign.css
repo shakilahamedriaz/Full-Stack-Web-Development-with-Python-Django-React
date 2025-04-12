@@ -1,0 +1,88 @@
+
+.container-nicebox{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+
+.nice-box{
+    height: 200px;
+    width: 200px;
+   
+}
+
+
+.nice-box1{
+    background-color: red;
+    /* transition: background-color 1s ease-in-out; */
+
+    animation: colorSwitch 3s alternate infinite;
+}
+
+.nice-box1:hover{
+    background-color: aqua;
+}
+
+.nice-box2{
+    background-color: green;
+    transition: background-color .6s ease-in-out;
+}
+
+.nice-box2:hover{
+    background-color: aqua;
+}
+.nice-box3{
+    background-color: blue;
+}
+
+.nice-box4{
+    background-color: pink;
+}
+
+
+
+.nice-box5{
+    background-color: black;
+}
+
+.nice-box6{
+    background-color: greenyellow;
+}
+/* @media screen and (max-width: 600px){
+    .nice-box{
+        background-color: blue;
+    }
+} */
+
+
+@media screen and (max-width: 600px)  {
+    
+    .container-nicebox{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media screen and (max-width: 400px)  {
+    
+    .container-nicebox{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+
+
+@keyframes colorSwitch {
+     0%{
+        background-color: red;
+     }
+
+    50%{
+        background-color: blue;
+    }
+
+    100%{
+        background-color: red;
+    }
+}

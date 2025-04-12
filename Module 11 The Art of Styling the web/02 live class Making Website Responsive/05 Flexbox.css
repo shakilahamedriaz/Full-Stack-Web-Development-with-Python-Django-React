@@ -1,0 +1,85 @@
+
+
+
+   .container {
+    height: 300px;
+    width: 300px;
+    background-color: darkgrey;
+    border: 5px solid green;
+    /* position: relative; */
+
+
+    display: flex;
+    /* flex-direction: column; */
+
+    justify-content: space-evenly;
+    /* align-items: center; */
+    gap: 10px;
+
+
+}
+
+
+
+.box {
+    width: 50px;
+    height: 50px;
+    box-sizing: border-box;
+}
+
+
+
+.box1 {
+    background-color: red;
+}
+
+
+
+.box2 {
+    background-color: aqua;
+
+    /* Uncomment one at a time to experiment */
+
+    /*
+    position: static;
+    // Default value. The element stays in the normal document flow.
+    */
+
+    /*
+    position: relative;
+    // Moves the element relative to its original position.
+    // Does not affect surrounding elements.
+    left: 50px;
+    top: 20px;
+    bottom: 20px;
+    */
+
+    /*
+    position: fixed;
+    // The element is fixed to the viewport. It does not move when scrolled.
+    bottom: 20px;
+    right: 20px;
+    */
+
+    /*
+    position: sticky;
+    // Behaves like relative until a scroll point is reached, then becomes fixed.
+    top: 10px;
+    */
+
+ 
+}
+
+
+
+.box3 {
+    background-color: blue;
+
+}
+
+
+
+/*
+learn : Stacking context, Z-index 
+
+*/
