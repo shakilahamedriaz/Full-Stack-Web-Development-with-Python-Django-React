@@ -1,5 +1,6 @@
 //printing hello world in js
 console.log("Hello World");
+console.log("hello duniya!!");
 
 //variable declaration 
 let x = 5;
@@ -112,7 +113,7 @@ for(let i = 0; i < arr.length; i++)
 
 arr.forEach(arr => {
     console.log(arr);
-}
+});
 //output: 1 2 3 4 5
 
 
@@ -145,8 +146,12 @@ const person = {
     age: 30,
     city: "New York"
 };
-console.log(person.name); // John
+//Use dot notation (object.property) to get the value.
+console.log(person.name); // John 
+console.log(person["age"]); // 30
 
+
+//for in loop is used to iterate through the properties of an object
 for(let key in person)
 {
     console.log(key + ": " + person[key] + "\n");
@@ -163,3 +168,11 @@ function add(a, b) {
     return a + b;
 }
 console.log(add(5, 10)); // 15
+
+
+function substraction(a, b, c){
+    return (a + b ) - c;
+}
+
+let ans = substraction(10, 20, 5);
+console.log(ans); // 25 
