@@ -40,4 +40,5 @@ const change = document.getElementById("button-id");
 
 // Add a click event listener to the button that will execute changeBG() when clicked
 change.addEventListener("click", changeBG);
-change.addEventListener("mouseover", changeBG);  // This line is redundant; the function is already added above{
+change.addEventListener("mouseover", changeBG);  // This line is redundant; the function is already added above
+//change.addEventListener("mouseout", changeBG);  // This line is also redundant; the function is already added above

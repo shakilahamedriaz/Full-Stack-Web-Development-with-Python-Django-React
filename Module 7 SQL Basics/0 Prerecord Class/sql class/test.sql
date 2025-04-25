@@ -3,7 +3,8 @@ SELECT * FROM courses;
 
 
 -- Retrieve student details (ID, name, GPA)
-SELECT students.student_id, students.first_name, students.last_name, students.gpa FROM students;
+SELECT students.student_id, students.first_name, students.last_name, students.gpa 
+FROM students;
 
 
 -- Order students by GPA in ascending order where GPA is less than 4.00
@@ -26,11 +27,10 @@ ORDER BY students.gpa DESC
 LIMIT 3;
 
 
--- Find students with last names starting with 'D'
+-- Find students with last name starting with 'D'
 SELECT students.student_id, students.first_name, students.last_name, students.gpa
 FROM students
 WHERE students.last_name LIKE "D%";
-
 
 -- Find students with 'a' anywhere in their first name
 SELECT students.student_id, students.first_name, students.last_name, students.gpa
@@ -45,11 +45,14 @@ WHERE students.first_name LIKE "J___";
 
 
 -- Count the total number of students
-SELECT COUNT(*) FROM students;
+SELECT COUNT(*) 
+FROM students;
 
 
 -- Group students by course and count students in each course
-SELECT students.course_id, COUNT(*) FROM students GROUP BY students.course_id;
+SELECT students.course_id, COUNT(*) 
+FROM students 
+GROUP BY students.course_id;
 
 
 -- Find courses with average GPA > 3.5
@@ -60,7 +63,8 @@ HAVING AVG(students.gpa) > 3.5;
 
 
 -- Retrieve all student details
-SELECT * FROM students;
+SELECT * 
+FROM students;
 
 
 -- Group students by course and find courses with more than 1 student
