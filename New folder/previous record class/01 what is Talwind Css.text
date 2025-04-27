@@ -1,0 +1,15 @@
+Aspect: Code Writing Style
+Traditional CSS: CSS files are created, and separate classes are written.
+Tailwind CSS: Utility classes are directly used within the HTML.
+
+Aspect: Time Consumption
+Traditional CSS: Takes more time as separate CSS classes need to be written.
+Tailwind CSS: Faster to design as utility classes are pre-defined.
+
+Aspect: Responsive Design
+Traditional CSS: Media queries need to be written manually.
+Tailwind CSS: Pre-defined classes like sm:, md:, lg:, xl: make it easier to implement.
+
+Aspect: Custom Styling
+Traditional CSS: Requires a lot of customization and manual effort.
+Tailwind CSS: Custom designs can be achieved quickly with minimal effort.
