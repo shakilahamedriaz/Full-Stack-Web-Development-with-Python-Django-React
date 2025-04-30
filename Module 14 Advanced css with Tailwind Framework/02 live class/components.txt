@@ -1,0 +1,9 @@
+shadcn/ui
+flowbite
+digsy ui
+free ui
+
+
+
+a prompt:
+I have done some part of a sample portfolio with html and tailwindcss. Talwind css is aready added please complete rest of the section using latest tailwindcss. Use Modern and fancy ui style.
