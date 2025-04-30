@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/output.css">
+    <title>Portfolio - Shakil Ahamed Riaz</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.12.0/cdn.min.js" defer></script>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans">
+    <!-- Header Section with Sticky Navigation -->
+    <header class="fixed w-full z-50">
+        <nav x-data="{ open: false }" class="backdrop-blur-md bg-white/80 shadow-lg">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16">
+                    <div class="flex items-center">
+                        <a href="#" class="text-2xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                            Shakil<span class="font-light">.dev</span>
+                        </a>
+                    </div>
+                    
+                    <!-- Desktop Navigation -->
+                    <div class="hidden md:flex items-center space-x-8">
+                        <a href="#about" class="text-gray-700 hover:text-indigo-600 transition duration-300 ease-in-out font-medium">About</a>
+                        <a href="#skills" class="text-gray-700 hover:text-indigo-600 transition duration-300 ease-in-out font-medium">Skills</a>
+                        <a href="#projects" class="text-gray-700 hover:text-indigo-600 transition duration-300 ease-in-out font-medium">Projects</a>
+                        <a href="#testimonials" class="text-gray-700 hover:text-indigo-600 transition duration-300 ease-in-out font-medium">Testimonials</a>
+                        <a href="#contact" class="text-gray-700 hover:text-indigo-600 transition duration-300 ease-in-out font-medium">Contact</a>
+                        <a href="#" class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-4 py-2 rounded-full font-medium hover:from-indigo-700 hover:to-purple-700 transition duration-300 ease-in-out">Resume</a>
+                    </div>
+                    
+                    <!-- Mobile Navigation Button -->
+                    <div class="md:hidden flex items-center">
+                        <button @click="open = !open" class="text-gray-700 hover:text-indigo-600 focus:outline-none">
+                            <svg class="h-6 w-6" x-show="!open" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                            <svg class="h-6 w-6" x-show="open" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Mobile Navigation Menu -->
+            <div x-show="open" class="md:hidden bg-white shadow-lg">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">About</a>
+                    <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Skills</a>
+                    <a href="#projects" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Projects</a>
+                    <a href="#testimonials" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Testimonials</a>
+                    <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50">Contact</a>
+                    <a href="#" class="block px-3 py-2 rounded-md text-base font-medium bg-gradient-to-r from-indigo-600 to-purple-600 text-white">Resume</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <!-- Hero Section with Particles Effect -->
+        <section id="hero" class="relative bg-gradient-to-br from-indigo-900 via-indigo-800 to-purple-900 pt-32 pb-20 overflow-hidden">
+            <!-- Animated Gradient Circles -->
+            <div class="absolute inset-0 overflow-hidden">
+                <div class="absolute -top-20 -left-20 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+                <div class="absolute top-10 right-10 w-72 h-72 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+                <div class="absolute -bottom-20 left-1/2 w-72 h-72 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
+            </div>
+            
+            <div class="relative z-10 max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
+                    <h2 class="text-white text-xl md:text-2xl font-light mb-3">Hi there, I'm</h2>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4 text-white">
+                        Shakil Ahamed <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-pink-400">Riaz</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-indigo-200 mb-8">Software Engineer & Competitive Programmer</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center md:justify-start">
+                        <a href="#projects" class="px-8 py-3 bg-white text-indigo-800 rounded-full font-medium shadow-lg hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1">
+                            View My Work
+                        </a>
+                        <a href="#contact" class="px-8 py-3 bg-transparent border-2 border-white text-white rounded-full font-medium hover:bg-white/10 transition duration-300 ease-in-out transform hover:-translate-y-1">
+                            Get in Touch
+                        </a>
+                    </div>
+                    <div class="mt-8 flex space-x-6 justify-center md:justify-start">
+                        <a href="https://github.com/shakilahamedriaz" target="_blank" rel="noopener noreferrer" class="text-indigo-200 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-github text-2xl"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/shakilahamedriaz/" target="_blank" rel="noopener noreferrer" class="text-indigo-200 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
+                        <a href="https://x.com/ShakilAhamedria" target="_blank" rel="noopener noreferrer" class="text-indigo-200 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-twitter text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative">
+                        <div class="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 absolute animate-pulse"></div>
+                        <img 
+                            class="w-60 h-60 md:w-72 md:h-72 rounded-full object-cover border-4 border-white shadow-2xl relative z-10" 
+                            src="https://picsum.photos/400" 
+                            alt="Shakil Ahamed Riaz"
+                        >
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold mb-2 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent inline-block">About Me</h2>
+                    <div class="w-20 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto"></div>
+                </div>
+                
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-10 md:mb-0">
+                        <div class="relative">
+                            <div class="absolute -inset-1 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg blur opacity-25"></div>
+                            <div class="relative overflow-hidden rounded-lg">
+                                <img src="https://picsum.photos/600/400" alt="About Me" class="w-full rounded-lg shadow-xl transform transition duration-500 hover:scale-105">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2 md:pl-16">
+                        <h3 class="text-2xl font-bold mb-4 text-gray-800">Who I Am</h3>
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            I am a passionate software engineer with expertise in building scalable web applications and solving complex problems. 
+                            With a strong background in competitive programming, I bring efficiency and creativity to every project I work on.
+                        </p>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            My journey in software development started when I was in college, and since then, I have been continuously learning and improving my skills.
+                            I believe in writing clean, maintainable code and creating user-friendly applications that solve real-world problems.
+                        </p>
+                        
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-2 h-2 bg-indigo-600 rounded-full"></div>
+                                <span class="text-gray-700">5+ Years Experience</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-2 h-2 bg-indigo-600 rounded-full"></div>
+                                <span class="text-gray-700">15+ Projects Completed</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-2 h-2 bg-indigo-600 rounded-full"></div>
+                                <span class="text-gray-700">Full-Stack Development</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-2 h-2 bg-indigo-600 rounded-full"></div>
+                                <span class="text-gray-700">Problem Solving</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <a href="#" class="inline-flex items-center px-5 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg shadow-md hover:from-indigo-700 hover:to-purple-700 transition duration-300 ease-in-out transform hover:-translate-y-1">
+                                <span>Download CV</span>
+                                <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 px-6 bg-gray-50">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold mb-2 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent inline-block">My Skills</h2>
+                    <div class="w-20 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Frontend Development -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-2">
+                        <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-2"></div>
+                        <div class="p-8">
+                            <div class="w-16 h-16 bg-indigo-100 rounded-lg flex items-center justify-center mb-6">
+                                <i class="fas fa-code text-indigo-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4 text-gray-800">Frontend Development</h3>
+                            <div class="space-y-3">
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-gray-600">HTML/CSS</span>
+                                        <span class="text-gray-600">95%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-2 rounded-full" style="width: 95%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-gray-600">JavaScript</span>
+                                        <span class="text-gray-600">90%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-2 rounded-full" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-gray-600">React</span>
+                                        <span class="text-gray-600">85%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-2 rounded-full" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Backend Development -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-2">
+                        <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-2"></div>
+                        <div class="p-8">
+                            <div class="w-16 h-16 bg-indigo-100 rounded-lg flex items-center justify-center mb-6">
+                                <i class="fas fa-server text-indigo-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4 text-gray-800">Backend Development</h3>
+                            <div class="space-y-3">
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-gray-600">Node.js</span>
+                                        <span class="text-gray-600">88%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-2 rounded-full" style="width: 88%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-gray-600">Python</span>
+                                        <span class="text-gray-600">80%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-2 rounded-full" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-gray-600">Databases</span>
+                                        <span class="text-gray-600">85%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-2 rounded-full" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Other Skills -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-2">
+                        <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-2"></div>
+                        <div class="p-8">
+                            <div class="w-16 h-16 bg-indigo-100 rounded-lg flex items-center justify-center mb-6">
+                                <i class="fas fa-tools text-indigo-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-4 text-gray-800">Tools & Others</h3>
+                            <div class="space-y-3">
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-gray-600">Git/GitHub</span>
+                                        <span class="text-gray-600">92%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-2 rounded-full" style="width: 92%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-gray-600">Docker</span>
+                                        <span class="text-gray-600">75%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-2 rounded-full" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between mb-1">
+                                        <span class="text-gray-600">Problem Solving</span>
+                                        <span class="text-gray-600">95%</span>
+                                    </div>
+                                    <div class="w-full bg-gray-200 rounded-full h-2">
+                                        <div class="bg-gradient-to-r from-indigo-600 to-purple-600 h-2 rounded-full" style="width: 95%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold mb-2 bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent inline-block">Featured Projects</h2>
+                    <div class="w-20 h-1 bg-gradient-to-r from-indigo-600 to-purple-600 mx-auto"></div>
+                </div>
+                
+                <!-- Project Filter Buttons -->
+                <div x-data="{ activeTab: 'all' }" class="flex flex-wrap justify-center mb-12 space-x-2 space-y-2 md:space-y-0">
+                    <button @click="activeTab = 'all'" :class="{ 'bg-indigo-600 text-white': activeTab === 'all', 'bg-gray-200 text-gray-700': activeTab !== 'all' }" class="px-6 py-2 rounded-full transition duration-300 ease-in-out">
+                        All
+                    </button>
+                    <button @click="activeTab = 'web'" :class="{ 'bg-indigo-600 text-white': activeTab === 'web', 'bg-gray-200 text-gray-700': activeTab !== 'web' }" class="px-6 py-2 rounded-full transition duration-300 ease-in-out">
+                        Web Apps
+                    </button>
+                    <button @click="activeTab = 'mobile'" :class="{ 'bg-indigo-600 text-white': activeTab === 'mobile', 'bg-gray-200 text-gray-700': activeTab !== 'mobile' }" class="px-6 py-2 rounded-full transition duration-300 ease-in-out">
+                        Mobile Apps
+                    </button>
+                    <button @click="activeTab = 'others'" :class="{ 'bg-indigo-600 text-white': activeTab === 'others', 'bg-gray-200 text-gray-700': activeTab !== 'others' }" class="px-6 py-2 rounded-full transition duration-300 ease-in-out">
+                        Others
+                    </button>
+                </div>
+                
+                <!-- Projects Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Project Card 1 -->
+                    <div class="group relative bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300 ease-in-out">
+                        <div class="relative overflow-hidden">
+                            <img src="https://picsum.photos/600/400?random=1" alt="Project 1" class="w-full h-60 object-cover transform transition duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                                <div>
+                                    <h3 class="text-xl font-bold text-white mb-2">E-Commerce Platform</h3>
+                                    <p class="text-gray-300 mb-4">A modern online shopping platform with secure payment integration.</p>
+                                    <div class="flex space-x-2">
+                                        <span class="px-2 py-1 bg-indigo-600/80 text-white text-xs rounded">React</span>
+                                        <span class="px-2 py-1 bg-indigo-600/80 text-white text-xs rounded">Node.js</span>
+                                        <span class="px-2 py-1 bg-indigo-600/80 text-white text-xs rounded">MongoDB</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-gray-800 group-hover:text-indigo-600 transition duration-300">E-Commerce Platform</h3>
+                            <p class="text-gray-600 mb-4">A modern online shopping platform with secure payment integration.</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex space-x-2">
+                                    <a href="#" class="text-indigo-600 hover:text-indigo-800 transition duration-300">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="#" class="text-indigo-600 hover:text-indigo-800 transition duration-300">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                                <a href="#" class="text-indigo-600 hover:text-indigo-800 transition duration-300 font-medium">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Card 2 -->
+                    <div class="group relative bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300 ease-in-out">
+                        <div class="relative overflow-hidden">
+                            <img src="https://picsum.photos/600/400?random=2" alt="Project 2" class="w-full h-60 object-cover transform transition duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                                <div>
+                                    <h3 class="text-xl font-bold text-white mb-2">Social Media Dashboard</h3>
+                                    <p class="text-gray-300 mb-4">Analytics dashboard for tracking social media performance.</p>
+                                    <div class="flex space-x-2">
+                                        <span class="px-2 py-1 bg-indigo-600/80 text-white text-xs rounded">Vue.js</span>
+                                        <span class="px-2 py-1 bg-indigo-600/80 text-white text-xs rounded">Express</span>
+                                        <span class="px-2 py-1 bg-indigo-600/80 text-white text-xs rounded">PostgreSQL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-gray-800 group-hover:text-indigo-600 transition duration-300">Social Media Dashboard</h3>
+                            <p class="text-gray-600 mb-4">Analytics dashboard for tracking social media performance.</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex space-x-2">
+                                    <a href="#" class="text-indigo-600 hover:text-indigo-800 transition duration-300">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="#" class="text-indigo-600 hover:text-indigo-800 transition duration-300">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                                <a href="#" class="text-indigo-600 hover:text-indigo-800 transition duration-300 font-medium">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Card 3 -->
+                    <div class="group relative bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300 ease-in-out">
+                        <div class="relative overflow-hidden">
+                            <img src="https://picsum.photos/600/400?random=3" alt="Project 3" class="w-full h-60 object-cover transform transition duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                                <div>
+                                    <h3 class="text-xl font-bold text-white mb-2">Fitness Tracker App</h3>
+                                    <p class="text-gray-300 mb-4">Mobile application for tracking workouts and nutrition.</p>
+                                    <div class="flex space-x-2">
+                                        <span class="px-2 py-1 bg-indigo-600/80 text-white text-xs rounded">React Native</span>
+                                        <span class="px-2 py-1 bg-indigo-600/80 text-white text-xs rounded">Firebase</span>
+                                        <span class="px-2 py-1 bg-indigo-600/80 text-white text-xs rounded">Redux</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-gray-800 group-hover:text-indigo-600 transition duration-300">Fitness Tracker App</h3>
+                            <p class="text-gray-600 mb-4">Mobile application for tracking workouts and nutrition.</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex space-x-2">
+                                    <a href="#" class="text-indigo-600 hover:text-indigo-800 transition duration-300">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="#" class="text-indigo-600 hover:text-indigo-800 transition duration-300">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                                <a href="#" class="text-indigo-600 hover:text-indigo-800 transition duration-300 font-medium">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Card 4 -->
+                    <div class="group relative bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300 ease-in-out">
+                        <div class="relative overflow-hidden">
+                            <img src="https://picsum.photos/600/400?random=4" alt="Project 4" class="w-full h-60 object-cover transform transition duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                                <div>
+                                    <h3 class="text-xl font-bold text-white mb-2">AI Chat Assistant</h3>
+                                    <p class="text-gray-300 mb-4">Smart chatbot platform with natural language processing abilities.</p>
+                                    <div class="flex space-x-2">
+                                        <span class="px-2 py-1 bg-indigo-600/80 text-white text-xs rounded">Python</span>
+                                        <span class="px-2 py-1 bg-indigo-600/80 text-white text-xs rounded">TensorFlow</span>
+                                        <span class="px-2 py-1 bg-indigo-600/80 text-white text-xs rounded">Flask</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-gray-800 group-hover:text-indigo-600 transition duration-300">AI Chat Assistant</h3>
+                            <p class="text-gray-600 mb-4">Smart chatbot platform with natural language processing abilities.</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex space-x-2">
+                                    <a href="#" class="text-indigo-600 hover:text-indigo-800 transition duration-300">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="#" class="text-indigo-600 hover:text-indigo-800 transition duration-300">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                                <a href="#" class="text-indigo-600 hover:text-indigo-800 transition duration-300 font-medium">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Card 5 -->
+                    <div class="group relative bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300 ease-in-out">
+                        <div class="relative overflow-hidden">
+                            <img src="https://picsum.photos/600/400?random=5" alt="Project 5" class="w-full h-60 object-cover transform transition duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                                <div>
+                                    <h3 class="text-xl font-bold text-white mb-2">Finance Management Tool</h3>
+                                    <p class="text-gray-300 mb-4">Personal finance tracker with budget planning features.</p>
+                                    <div class="flex space-x-2">
+                                        <span class="px-2 py-1 bg-indigo-600/80 text-white text-xs rounded">Angular</span>
+                                        <span class="px-2 py-1 bg-indigo-600/80 text-white text-xs rounded">Spring Boot</span>
+                                        <span class="px-2 py-1 bg-indigo-600/80 text-white text-xs rounded">MySQL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-gray-800 group-hover:text-indigo-600 transition duration-300">Finance Management Tool</h3>
+                            <p class="text-gray-600 mb-4">Personal finance tracker with budget planning features.</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex space-x-2">
+                                    <a href="#" class="text-indigo-600 hover:text-indigo-800 transition duration-300">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="#" class="text-indigo-600 hover:text-indigo-800 transition duration-300">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                                <a href="#" class="text-indigo-600 hover:text-indigo-800 transition duration-300 font-medium">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Card 6 -->
+                    <div class="group relative bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition duration-300 ease-in-out">
+                        <div class="relative overflow-hidden">
+                            <img src="https://picsum.photos/600/400?random=6" alt="Project 6" class="w-full h-60 object-cover transform transition duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
+                                <div>
+                                    <h3 class="text-xl font-bold text-white mb-2">Weather Forecast App</h3>
+                                    <p class="text-gray-300 mb-4">Real-time weather updates with location tracking.</p>
+                                    <div class="flex space-x-2">
+                                        <span class="px-2 py-1 bg-indigo-600/80 text-white text-xs rounded">JavaScript</span>
+                                        <span class="px-2 py-1 bg-indigo-600/80 text-white text-xs rounded">API Integration</span>
+                                        <span class="px-2 py-1 bg-indigo-600/80 text-white text-xs rounded">Responsive Design</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2 text-gray-800 group-hover:text-indigo-600 transition duration-300">Weather Forecast App</h3>
+                            <p class="text-gray-600 mb-4">Real-time weather updates with location tracking.</p>
+                            <div class="flex justify-between items-center">
+                                <div class="flex space-x-2">
+                                    <a href="#" class="text-indigo-600 hover:text-indigo-800 transition duration-300">
+                                        <i class="fas fa-external-link-alt"></i>
+                                    </a>
+                                    <a href="#" class="text-indigo-600 hover:text-indigo-800 transition duration-300">
+                                        <i class="fab fa-github"></i>
+                                    </a>
+                                </div>
+                                <a href="#" class="text-indigo-600 hover:text-indigo-800 transition duration-300 font-medium">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>  
+ 
+  <!-- Contact Section -->
+<section id="contact" class="py-24 px-6 bg-gradient-to-br from-indigo-600 to-purple-700 text-white relative overflow-hidden">
+    <!-- Background decorative elements -->
+    <div class="absolute top-0 left-0 w-full h-full">
+        <div class="absolute top-10 left-10 w-32 h-32 bg-white opacity-10 rounded-full"></div>
+        <div class="absolute bottom-10 right-10 w-48 h-48 bg-purple-400 opacity-10 rounded-full"></div>
+        <div class="absolute top-1/2 left-1/4 w-24 h-24 bg-indigo-300 opacity-10 rounded-full"></div>
+    </div>
+
+    <div class="max-w-5xl mx-auto relative z-10">
+        <div class="flex flex-col md:flex-row gap-12">
+            <!-- Contact Info Side -->
+            <div class="md:w-2/5 space-y-8">
+                <div class="text-left">
+                    <h2 class="text-4xl font-bold mb-2">Let's Connect</h2>
+                    <div class="h-1 w-20 bg-purple-300 mb-6"></div>
+                    <p class="text-lg text-indigo-100">I'm always open to new opportunities and collaborations. Drop me a message!</p>
+                </div>
+                
+                <!-- Contact Info Cards -->
+                <div class="space-y-4">
+                    <div class="flex items-center p-4 bg-white bg-opacity-10 rounded-lg backdrop-blur-sm">
+                        <div class="p-3 bg-purple-500 bg-opacity-50 rounded-full mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-sm">EMAIL</h3>
+                            <p class="text-indigo-100">your.email@example.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center p-4 bg-white bg-opacity-10 rounded-lg backdrop-blur-sm">
+                        <div class="p-3 bg-purple-500 bg-opacity-50 rounded-full mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-sm">LOCATION</h3>
+                            <p class="text-indigo-100">Your City, Country</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Social Media Links -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Find me on</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="p-3 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-full transition-all duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="p-3 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-full transition-all duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 16h-2v-6h2v6zm-1-6.891c-.607 0-1.1-.496-1.1-1.109 0-.612.492-1.109 1.1-1.109s1.1.497 1.1 1.109c0 .613-.493 1.109-1.1 1.109zm8 6.891h-1.998v-2.861c0-1.881-2.002-1.722-2.002 0v2.861h-2v-6h2v1.093c.872-1.616 4-1.736 4 1.548v3.359z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="p-3 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-full transition-all duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="p-3 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-full transition-all duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723 10.23 10.23 0 01-3.12 1.184 4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Form Side -->
+            <div class="md:w-3/5">
+                <div class="bg-white bg-opacity-10 p-8 rounded-2xl backdrop-blur-sm border border-white border-opacity-20 shadow-xl">
+                    <form class="space-y-5">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-sm font-medium text-indigo-100 mb-1">Name</label>
+                                <input 
+                                    type="text" 
+                                    class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-indigo-300 border-opacity-30 text-white placeholder-indigo-200 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                                    placeholder="John Doe"
+                                >
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-indigo-100 mb-1">Email</label>
+                                <input 
+                                    type="email" 
+                                    class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-indigo-300 border-opacity-30 text-white placeholder-indigo-200 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                                    placeholder="email@example.com"
+                                >
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-indigo-100 mb-1">Subject</label>
+                            <input 
+                                type="text" 
+                                class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-indigo-300 border-opacity-30 text-white placeholder-indigo-200 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                                placeholder="How can I help you?"
+                            >
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium text-indigo-100 mb-1">Message</label>
+                            <textarea 
+                                class="w-full px-4 py-3 rounded-lg bg-white bg-opacity-20 border border-indigo-300 border-opacity-30 text-white placeholder-indigo-200 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                                rows="5"
+                                placeholder="Your message here..."
+                            ></textarea>
+                        </div>
+                        
+                        <div class="text-right">
+                            <button 
+                                type="submit" 
+                                class="px-6 py-3 bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-medium rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 flex items-center"
+                            >
+                                Send Message
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
