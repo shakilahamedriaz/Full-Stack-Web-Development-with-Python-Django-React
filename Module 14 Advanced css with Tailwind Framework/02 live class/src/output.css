@@ -1094,13 +1094,6 @@
       }
     }
   }
-  .hover\:bg-green-200 {
-    &:hover {
-      @media (hover: hover) {
-        background-color: var(--color-green-200);
-      }
-    }
-  }
   .hover\:bg-white\/10 {
     &:hover {
       @media (hover: hover) {
@@ -1138,13 +1131,6 @@
     &:hover {
       @media (hover: hover) {
         color: var(--color-indigo-800);
-      }
-    }
-  }
-  .hover\:text-primary {
-    &:hover {
-      @media (hover: hover) {
-        color: var(--color-primary);
       }
     }
   }
