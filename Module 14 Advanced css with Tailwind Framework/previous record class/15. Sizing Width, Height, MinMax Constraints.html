@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sizing Example</title>
+  <script src="https://cdn.tailwindcss.com"></script> <!-- Include Tailwind -->
+</head>
+<body class="flex justify-center items-center min-h-screen bg-gray-100">
+
+  <div class="bg-blue-500 text-white p-4 
+              w-64 h-32 
+              min-w-[150px] max-w-[300px] 
+              min-h-[100px] max-h-[200px] 
+              overflow-auto">
+    <!-- Width: w-64 (16rem), min-w & max-w apply limits -->
+    <!-- Height: h-32 (8rem), min-h & max-h apply limits -->
+    <p>This box has fixed width & height, with min/max constraints.</p>
+  </div>
+
+</body>
+</html>
