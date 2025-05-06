@@ -1,0 +1,57 @@
+.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/output.css">
+    <title>Borders and Outlines Example</title>
+</head>
+<body class="p-8 space-y-4">
+    <!-- Border Widths -->
+    <div class="border-2 p-4 mb-4">Border Width 2px</div>
+    <div class="border-4 p-4 mb-4">Border Width 4px</div>
+    <div class="border-8 p-4 mb-4">Border Width 8px</div>
+
+    <!-- Border Styles -->
+    <div class="border-4 border-solid p-4 mb-4">Solid Border</div>
+    <div class="border-4 border-dashed p-4 mb-4">Dashed Border</div>
+    <div class="border-4 border-dotted p-4 mb-4">Dotted Border</div>
+
+    <!-- Border Colors -->
+    <div class="border-4 border-blue-500 p-4 mb-4">Blue Border</div>
+    <div class="border-4 border-red-500 p-4 mb-4">Red Border</div>
+    <div class="border-4 border-green-500 p-4 mb-4">Green Border</div>
+
+    <!-- Border Radius -->
+    <div class="border-4 rounded-sm p-4 mb-4">Small Radius</div>
+    <div class="border-4 rounded-lg p-4 mb-4">Large Radius</div>
+    <div class="border-4 rounded-full p-4 mb-4">Full Radius</div>
+
+    <!-- Individual Side Borders -->
+    <div class="border-t-4 p-4 mb-4">Top Border</div>
+    <div class="border-r-4 p-4 mb-4">Right Border</div>
+    <div class="border-b-4 p-4 mb-4">Bottom Border</div>
+    <div class="border-l-4 p-4 mb-4">Left Border</div>
+
+    <!-- Outline -->
+    <div class="outline outline-offset-2 outline-blue-500 p-4 mb-4">
+        Outline with Offset
+    </div>
+
+    <!-- Practical Example: Card with Mixed Border Styles -->
+    <div class="max-w-sm mx-auto bg-white shadow-lg rounded-xl overflow-hidden">
+        <div class="border-b-2 border-gray-200 p-4">
+            <h3 class="text-xl font-bold">Card Header</h3>
+        </div>
+        <div class="p-4 border-l-4 border-blue-500">
+            <p>This is a practical example of using borders in a card component.</p>
+        </div>
+        <div class="border-t-2 border-gray-200 p-4">
+            <button class="px-4 py-2 border-2 border-blue-500 rounded-full hover:bg-blue-500 hover:text-white transition-colors">
+                Action Button
+            </button>
+        </div>
+    </div>
+</body>
+</html>
