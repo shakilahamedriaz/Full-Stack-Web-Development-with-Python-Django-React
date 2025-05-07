@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/output.css">
+    <title>Animations with Tailwind CSS</title>
+</head>
+<body class="p-8 space-y-8">
+    <!-- Bounce Animation -->
+    <h2 class="text-2xl font-bold mb-4">Bounce Animation</h2>
+    <svg class="w-12 h-12 text-blue-500 animate-bounce mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+    </svg>
+
+    <!-- Pulse Animation -->
+    <h2 class="text-2xl font-bold mb-4">Pulse Animation</h2>
+    <div class="mx-auto w-full max-w-sm rounded-md border border-blue-300 p-4">
+        <div class="flex animate-pulse space-x-4">
+            <div class="w-10 h-10 rounded-full bg-gray-200"></div>
+            <div class="flex-1 space-y-6 py-1">
+                <div class="h-2 rounded bg-gray-200"></div>
+                <div class="space-y-3">
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="col-span-2 h-2 rounded bg-gray-200"></div>
+                        <div class="col-span-1 h-2 rounded bg-gray-200"></div>
+                    </div>
+                    <div class="h-2 rounded bg-gray-200"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/output.css">
+    <title>Managing Resizing in Tailwind CSS</title>
+</head>
+<body class="p-8 space-y-8 bg-gray-100">
+    <!-- Resize Property -->
+    <section>
+        <h2 class="text-2xl font-bold mb-4">Resize Property</h2>
+        <div class="flex flex-col space-y-4">
+            <!-- Resizable Textarea -->
+            <textarea class="resize border border-gray-300 p-2 w-64 h-24"></textarea>
+            <!-- Horizontal Resize Only -->
+            <textarea class="resize-x border border-gray-300 p-2 w-64 h-24"></textarea>
+            <!-- Vertical Resize Only -->
+            <textarea class="resize-y border border-gray-300 p-2 w-64 h-24"></textarea>
+            <!-- No Resize -->
+            <textarea class="resize-none border border-gray-300 p-2 w-64 h-24"></textarea>
+        </div>
+    </section>
+
+    <!-- Max and Min Width -->
+    <section>
+        <h2 class="text-2xl font-bold mb-4">Max and Min Width</h2>
+        <div class="flex flex-col space-y-4">
+            <div class="bg-blue-500 text-white p-4 max-w-sm">This box has a max width of `sm`.</div>
+            <div class="bg-green-500 text-white p-4 min-w-[200px]">This box has a min width of 200px.</div>
+        </div>
+    </section>
+
+    <!-- Max and Min Height -->
+    <section>
+        <h2 class="text-2xl font-bold mb-4">Max and Min Height</h2>
+        <div class="flex flex-col space-y-4">
+            <div class="bg-red-500 text-white p-4 max-h-32 overflow-auto">
+                This box has a max height of 32 and will scroll if the content overflows.
+                <br>Line 1<br>Line 2<br>Line 3<br>Line 4<br>Line 5<br>Line 6
+            </div>
+            <div class="bg-yellow-500 text-white p-4 min-h-[100px]">
+                This box has a min height of 100px.
+            </div>
+        </div>
+    </section>
+</body>
+</html>

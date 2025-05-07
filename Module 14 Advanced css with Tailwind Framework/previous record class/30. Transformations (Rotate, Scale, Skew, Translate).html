@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/output.css">
+    <title>Transformations in Tailwind CSS</title>
+</head>
+<body class="p-8 space-y-8">
+    <!-- Rotate Example -->
+    <section>
+        <h2 class="text-2xl font-bold mb-4">Rotate</h2>
+        <div class="flex space-x-4">
+            <div class="w-16 h-16 bg-blue-500 transform rotate-45"></div>
+            <div class="w-16 h-16 bg-red-500 transform -rotate-45"></div>
+        </div>
+    </section>
+
+    <!-- Scale Example -->
+    <section>
+        <h2 class="text-2xl font-bold mb-4">Scale</h2>
+        <div class="flex space-x-4">
+            <div class="w-16 h-16 bg-green-500 transform scale-75"></div>
+            <div class="w-16 h-16 bg-yellow-500 transform scale-125"></div>
+        </div>
+    </section>
+
+    <!-- Skew Example -->
+    <section>
+        <h2 class="text-2xl font-bold mb-4">Skew</h2>
+        <div class="flex space-x-4">
+            <div class="w-16 h-16 bg-purple-500 transform skew-x-12"></div>
+            <div class="w-16 h-16 bg-pink-500 transform skew-y-12"></div>
+        </div>
+    </section>
+
+    <!-- Translate Example -->
+    <section>
+        <h2 class="text-2xl font-bold mb-4">Translate</h2>
+        <div class="relative w-32 h-32 bg-gray-300">
+            <div class="absolute w-16 h-16 bg-indigo-500 transform translate-x-8 translate-y-8"></div>
+        </div>
+    </section>
+
+    <!-- Combined Transformations -->
+    <section>
+        <h2 class="text-2xl font-bold mb-4">Combined Transformations</h2>
+        <div class="w-16 h-16 bg-teal-500 transform rotate-45 scale-125 translate-x-4 translate-y-4"></div>
+    </section>
+</body>
+</html>

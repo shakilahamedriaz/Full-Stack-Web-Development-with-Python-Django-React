@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="src/output.css">
+    <title>Filters and Backdrop Filters</title>
+</head>
+<body class="p-8 space-y-8 bg-gray-100">
+    <!-- Filters Section -->
+    <section>
+        <h2 class="text-2xl font-bold mb-4">Filters</h2>
+        <div class="flex space-x-4">
+            <!-- Blur Filter -->
+            <div class="w-32 h-32 bg-blue-500 filter blur-sm"></div>
+            <div class="w-32 h-32 bg-blue-500 filter blur-md"></div>
+            <div class="w-32 h-32 bg-blue-500 filter blur-lg"></div>
+        </div>
+
+        <div class="flex space-x-4 mt-4">
+            <!-- Grayscale Filter -->
+            <div class="w-32 h-32 bg-green-500 filter grayscale"></div>
+            <!-- Sepia Filter -->
+            <div class="w-32 h-32 bg-yellow-500 filter sepia"></div>
+            <!-- Brightness Filter -->
+            <div class="w-32 h-32 bg-red-500 filter brightness-150"></div>
+        </div>
+    </section>
+
+    <!-- Backdrop Filters Section -->
+    <section>
+        <h2 class="text-2xl font-bold mb-4">Backdrop Filters</h2>
+        <div class="relative w-full max-w-md h-64 bg-cover bg-center bg-[url('https://via.placeholder.com/400')]">
+            <!-- Backdrop Blur -->
+            <div class="absolute inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center">
+                <p class="text-white text-lg">Backdrop Blur</p>
+            </div>
+        </div>
+
+        <div class="relative w-full max-w-md h-64 bg-cover bg-center bg-[url('https://via.placeholder.com/400')] mt-8">
+            <!-- Backdrop Grayscale -->
+            <div class="absolute inset-0 bg-black/50 backdrop-grayscale flex items-center justify-center">
+                <p class="text-white text-lg">Backdrop Grayscale</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
