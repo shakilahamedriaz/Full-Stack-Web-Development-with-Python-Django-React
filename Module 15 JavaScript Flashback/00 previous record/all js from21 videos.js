@@ -4,7 +4,7 @@ console.log("hello duniya!!");
 
 //variable declaration 
 let x = 5;
-console.log("hey there!! {x}");
+console.log(`hey there!! ${x}`); // fixed string interpolation
 
 //single line comment:
 //how can i check my pretter is working or not
@@ -17,8 +17,6 @@ console.log("hey there!! {x}");
 console.log("hey there!! {x}");
 */
 
-
-
 let y = 10;
 let z = 20;
 
@@ -28,22 +26,18 @@ console.log("sum is : ", sum);
 
 let a = 10;
 var b = 20;
-var b = 30; // redeclaring var is allowed
-
+b = 30; // redeclaring var is allowed
 
 console.log(a); // 10
 console.log(b); // 30
-
-
 
 var c;
 console.log(c); // undefined
 c = 10;
 console.log(c); // 10
 
-
 //var:
-console.log(foo);// undefined
+console.log(foo); // undefined
 var foo = "foo";
 console.log(foo); // foo
 
@@ -51,7 +45,7 @@ let aa = 10;
 aa++; // 11
 console.log(aa);
 
-aa +=100;
+aa += 100;
 console.log(aa); // 111
 
 aa--; // 110
@@ -90,8 +84,8 @@ console.log("BigInt:", bigInt, typeof bigInt);
 // JavaScript Operators
 
 // 1. Arithmetic Operators
-let aaa = 10, b = 3;
-console.log("Arithmetic:", aaa + b, aaa - b, aaa * b, aaa/ b, aaa % b, aaa ** b);
+let aaa = 10, bb = 3; // fixed duplicate declaration of b
+console.log("Arithmetic:", aaa + bb, aaa - bb, aaa * bb, aaa / bb, aaa % bb, aaa ** bb);
 // 10 + 3 = 13
 // 10 - 3 = 7
 // 10 * 3 = 30
@@ -102,17 +96,16 @@ console.log("Arithmetic:", aaa + b, aaa - b, aaa * b, aaa/ b, aaa % b, aaa ** b)
 // 2. Assignment Operators
 let xx = 5;
 xx += 2; xx -= 1; xx *= 3; xx /= 2;
-console.log("Assignment:", x);
+console.log("Assignment:", xx); // fixed from `x` to `xx`
 // 5 + 2 = 7
 // 7 - 1 = 6
 // 6 * 3 = 18
 // 18 / 2 = 9
 // 9 = 9
 
-
 // 3. Comparison Operators
-let c = 5, d = 10;
-console.log("Comparison:", c == d, c != d, c === d, c !== d, c > d, c < d, c >= d, c <= d);
+let cc = 5, d = 10;
+console.log("Comparison:", cc == d, cc != d, cc === d, cc !== d, cc > d, cc < d, cc >= d, cc <= d);
 // == equal to
 // != not equal to
 // === equal value and type
@@ -121,8 +114,6 @@ console.log("Comparison:", c == d, c != d, c === d, c !== d, c > d, c < d, c >= 
 // < less than
 // >= greater than or equal to
 // <= less than or equal to
-
-
 
 // 4. Logical Operators
 let e = true, f = false;
@@ -143,7 +134,6 @@ console.log("Unary & Ternary:", +g, -g, ++g, --g, g > 0 ? "Positive" : "Negative
 // g > 0 ? "Positive" : "Negative" = Positive (ternary operator)
 
 // == value comparison(only value is compared)
-
 let zz = 5;
 
 console.log(zz == 5); // true
@@ -151,13 +141,11 @@ console.log(zz == 6); // false
 console.log(zz == "5"); // true (type coercion)
 console.log(zz == "6"); // false (type coercion)
 
-
 // === value and type comparison (both value and type is compared)
 console.log(zz === 5); // true
 console.log(zz === 6); // false
 console.log(zz === "5"); // false (type coercion), type is string and number
 console.log(zz === "6"); // false (type coercion), type is string and number
-
 
 // != value comparison (only value is compared)
 if (zz == 5) {
@@ -166,14 +154,13 @@ if (zz == 5) {
 else if (zz == 6) {
     console.log("value not matched");
 }
-else{
+else {
     console.log("faka!!");
 }
 
-
 //switch case
 switch (zz) {
-   case 10:
+    case 10:
         console.log("value is 10");
         break;
     case 20:
@@ -184,13 +171,11 @@ switch (zz) {
         break;
 }
 
-
 //loops
 //iterate through an array
 let arr = [1, 2, 3, 4, 5];
 
-for(let i = 0; i < arr.length; i++)
-{
+for (let i = 0; i < arr.length; i++) {
     console.log(arr[i]);
 }
 //output: 1 2 3 4 5
@@ -200,36 +185,30 @@ arr.forEach(arr => {
 });
 //output: 1 2 3 4 5
 
-
 //while loop
 let i = 0;
-while(i < 5)
-{
+while (i < 5) {
     console.log(i);
     i++;
 }
-
 //output: 0 1 2 3 4
-
 
 //do while loop
 let j = 0;
 
-do
-{
+do {
     console.log(j);
     j++;
 }
-while(j < 5)
+while (j < 5)
 //output: 0 1 2 3 4
-
 
 //objects
 const person1 = {
     name: "John",
     age: 30,
     city: "New York",
-    greet: function() {
+    greet: function () {
         console.log("Hello, my name is " + this.name);
     }
 };
@@ -237,20 +216,15 @@ const person1 = {
 person1.greet(); // Hello, my name is John
 delete person1.city; // delete city property from person1 object
 
-
-
 //Use dot notation (object.property) to get the value.
 console.log(person1.name); // John 
 console.log(person1["age"]); // 30
-console.log(person1.city); // New York
+console.log(person1.city); // undefined (since deleted)
 
 //array
 const fruits = ["apple", "Banana", "cherry"];
 console.log(fruits[0]); // apple
 console.log(fruits[1]); // Banana
-
-
-
 
 const person = {
     name: "John",
@@ -259,24 +233,21 @@ const person = {
 };
 delete person.age; // delete age property from person object
 console.log(person); // { name: 'John', city: 'New York' }
+
 //for in loop is used to iterate through the properties of an object
-for(let key in person)
-{
+for (let key in person) {
     console.log(key + ": " + person[key] + "\n");
 }
 //output: 
 // name: John
-//age: 30
-//city: New York
+// city: New York
 
 //for of loop is used to iterate through the values of an array
 const numbers = [1, 2, 3, 4, 5];
-for(let number of numbers)
-{
+for (let number of numbers) {
     console.log(number + "\n");
 }
 //output: 1 2 3 4 5
-
 
 //functions
 function add(a, b) {
@@ -285,10 +256,9 @@ function add(a, b) {
 console.log(add(5, 10)); // 15
 console.log(add(2, 2)); // 4
 
-
-function substraction(a, b, c){
-    return (a + b ) - c;
+function substraction(a, b, c) {
+    return (a + b) - c;
 }
 
 let ans = substraction(10, 20, 5);
-console.log(ans); // 25 
+console.log(ans); // 25
