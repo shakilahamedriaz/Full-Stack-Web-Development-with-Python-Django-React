@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio - Haris F. Watson</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Poppins', sans-serif; /* Example font, include in head or CSS */
+            overflow-x: hidden; /* Prevent horizontal scroll on animations */
+        }
+        .hero-bg {
+            background-color: #f8f9fa; /* Light grey background similar to image */
+        }
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(to right, #ef4444, #f97316); /* Red-Orange gradient */
+        }
+        .btn-primary {
+            background-color: #ef4444; /* Red color for primary button */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #dc2626; /* Darker red on hover */
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            color: #ef4444;
+            border: 1px solid #ef4444;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #ef4444;
+            color: white;
+            transform: translateY(-2px);
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #ef4444;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            margin-top: 5px;
+            right: 0;
+            background: #ef4444;
+            transition: width 0.3s ease;
+            -webkit-transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+            background-color: #ef4444;
+        }
+        .active-link {
+            color: #ef4444;
+            font-weight: 600;
+        }
+        .active-link::after {
+            width: 100%;
+            left: 0;
+            background-color: #ef4444;
+        }
+        .section-title {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .section-title.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .fade-in {
+            opacity: 0;
+            animation: fadeInAnimation 1s ease-out forwards;
+        }
+        @keyframes fadeInAnimation {
+            to {
+                opacity: 1;
+            }
+        }
+        .slide-in-left {
+            opacity: 0;
+            transform: translateX(-100px);
+            animation: slideInLeftAnimation 1s ease-out forwards;
+        }
+        @keyframes slideInLeftAnimation {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        .slide-in-right {
+            opacity: 0;
+            transform: translateX(100px);
+            animation: slideInRightAnimation 1s ease-out forwards;
+        }
+        @keyframes slideInRightAnimation {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        .slide-up {
+            opacity: 0;
+            transform: translateY(50px);
+            animation: slideUpAnimation 0.8s ease-out forwards;
+        }
+        @keyframes slideUpAnimation {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Subtle background pattern */
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            left: 5%;
+            width: 100px;
+            height: 100px;
+            background-color: rgba(239, 68, 68, 0.1); /* Light red circle */
+            border-radius: 50%;
+            z-index: 0;
+            animation: pulse 4s infinite ease-in-out;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.1; }
+            50% { transform: scale(1.2); opacity: 0.2; }
+        }
+
+        /* Card hover effect */
+        .portfolio-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Services Icon Styling */
+        .service-icon {
+            transition: transform 0.3s ease;
+        }
+        .service-item:hover .service-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Contact Form Focus */
+        .form-input:focus {
+            border-color: #ef4444;
+            box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.2);
+        }
+
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-white text-gray-800">
+
+    <header id="header" class="bg-white shadow-md fixed w-full z-50 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-gray-800 hover:text-red-500 transition-colors">PORTFOLIO</a>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#home" class="nav-link active-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#page" class="nav-link">Page</a> <a href="#contact" class="nav-link">Contact</a>
+                <a href="#contact" class="btn-primary text-white px-4 py-2 rounded-md font-semibold">Get Free Consultant</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-800 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
+            <a href="#home" class="block px-6 py-3 text-gray-700 hover:bg-gray-100 hover:text-red-500 transition-colors">Home</a>
+            <a href="#about" class="block px-6 py-3 text-gray-700 hover:bg-gray-100 hover:text-red-500 transition-colors">About</a>
+            <a href="#services" class="block px-6 py-3 text-gray-700 hover:bg-gray-100 hover:text-red-500 transition-colors">Services</a>
+            <a href="#portfolio" class="block px-6 py-3 text-gray-700 hover:bg-gray-100 hover:text-red-500 transition-colors">Portfolio</a>
+            <a href="#page" class="block px-6 py-3 text-gray-700 hover:bg-gray-100 hover:text-red-500 transition-colors">Page</a>
+            <a href="#contact" class="block px-6 py-3 text-gray-700 hover:bg-gray-100 hover:text-red-500 transition-colors">Contact</a>
+            <a href="#contact" class="block mx-6 my-3 text-center btn-primary text-white px-4 py-2 rounded-md font-semibold">Get Free Consultant</a>
+        </div>
+    </header>
+    <section id="home" class="hero-bg pt-32 pb-16 md:pt-40 md:pb-24 relative overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 text-center md:text-left mb-10 md:mb-0">
+                    <p class="text-red-500 font-semibold mb-2 slide-in-left" style="animation-delay: 0.2s;">GET EVERY SINGLE SOLUTIONS</p>
+                    <h1 class="text-4xl md:text-6xl font-bold text-gray-800 mb-4 slide-in-left" style="animation-delay: 0.4s;">
+                        I'm Designer <br class="hidden md:block"> <span class="text-gradient">Haris F. Watson</span>
+                    </h1>
+                    <p class="text-gray-600 mb-8 text-lg slide-in-left" style="animation-delay: 0.6s;">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida.
+                    </p>
+                    <div class="space-x-4 slide-in-left" style="animation-delay: 0.8s;">
+                        <a href="#portfolio" class="btn-primary text-white px-8 py-3 rounded-md font-semibold text-lg">Learn More</a>
+                        <a href="#contact" class="btn-secondary px-8 py-3 rounded-md font-semibold text-lg">Hire Me</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center md:justify-end relative">
+                    <div class="absolute top-0 left-1/4 w-32 h-32 bg-red-200 rounded-full opacity-30 animate-pulse -z-10"></div>
+                    <div class="absolute bottom-10 right-1/4 w-24 h-24 bg-blue-200 rounded-full opacity-30 animate-pulse -z-10 delay-1000"></div>
+                    <img src="https://via.placeholder.com/450x500.png?text=Haris+F.+Watson" alt="Haris F. Watson" class="rounded-lg shadow-2xl max-w-sm md:max-w-md slide-in-right" style="animation-delay: 0.5s; z-index: 1;">
+                     </div>
+            </div>
+        </div>
+    </section>
+    <section id="about-condensed" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="slide-up">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4 section-title">Designing With Passion While Exploring The World.</h2>
+                    <p class="text-gray-600 mb-6 text-lg">
+                        I'm a passionate designer with a keen eye for detail and a love for creating intuitive and engaging user experiences. My journey in design has taken me through various industries, allowing me to explore diverse creative challenges.
+                    </p>
+                    <a href="#about" class="btn-primary text-white px-6 py-3 rounded-md font-semibold">More About Me</a>
+                </div>
+                <div class="slide-up" style="animation-delay: 0.2s;">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4 section-title">Any Type Of Query & Discussion.</h2>
+                    <p class="text-gray-600 mb-6 text-lg">
+                        Have a project in mind or just want to discuss a creative idea? I'm always open to new opportunities and collaborations. Let's connect and bring your vision to life.
+                    </p>
+                    <a href="#contact" class="btn-secondary px-6 py-3 rounded-md font-semibold">Let's Talk</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="services" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 section-title">My <span class="text-gradient">Services</span></h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto section-title" style="animation-delay: 0.2s;">
+                    Offering a range of design services to help you achieve your project goals.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center slide-up service-item">
+                    <div class="flex justify-center mb-6">
+                        <svg class="w-16 h-16 text-red-500 service-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2zM5 10h.01M5 14h.01M19 10h.01M19 14h.01M9 7h6"></path></svg>
+                        </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">UI/UX Design</h3>
+                    <p class="text-gray-600">Crafting intuitive and visually appealing user interfaces and experiences.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center slide-up service-item" style="animation-delay: 0.2s;">
+                    <div class="flex justify-center mb-6">
+                         <svg class="w-16 h-16 text-red-500 service-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                        </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Web Design</h3>
+                    <p class="text-gray-600">Creating modern, responsive, and user-friendly websites.</p>
+                </div>
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center slide-up service-item" style="animation-delay: 0.4s;">
+                    <div class="flex justify-center mb-6">
+                        <svg class="w-16 h-16 text-red-500 service-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                        </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Branding</h3>
+                    <p class="text-gray-600">Developing strong brand identities that resonate with your audience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="portfolio" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 section-title">My <span class="text-gradient">Portfolio</span></h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto section-title" style="animation-delay: 0.2s;">
+                    A selection of my recent projects. Click to learn more.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-100 rounded-lg overflow-hidden shadow-lg portfolio-card slide-up">
+                    <img src="https://via.placeholder.com/600x400.png?text=Project+Alpha" alt="Project Alpha" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Project Alpha</h3>
+                        <p class="text-gray-600 text-sm mb-4">UI/UX Design, Web Development</p>
+                        <a href="#" class="text-red-500 hover:text-red-700 font-semibold">View Details &rarr;</a>
+                    </div>
+                </div>
+                <div class="bg-gray-100 rounded-lg overflow-hidden shadow-lg portfolio-card slide-up" style="animation-delay: 0.2s;">
+                    <img src="https://via.placeholder.com/600x400.png?text=Project+Beta" alt="Project Beta" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Project Beta</h3>
+                        <p class="text-gray-600 text-sm mb-4">Branding, Mobile App Design</p>
+                        <a href="#" class="text-red-500 hover:text-red-700 font-semibold">View Details &rarr;</a>
+                    </div>
+                </div>
+                <div class="bg-gray-100 rounded-lg overflow-hidden shadow-lg portfolio-card slide-up" style="animation-delay: 0.4s;">
+                    <img src="https://via.placeholder.com/600x400.png?text=Project+Gamma" alt="Project Gamma" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Project Gamma</h3>
+                        <p class="text-gray-600 text-sm mb-4">Web Design, E-commerce</p>
+                        <a href="#" class="text-red-500 hover:text-red-700 font-semibold">View Details &rarr;</a>
+                    </div>
+                </div>
+                </div>
+        </div>
+    </section>
+    <section id="page" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 section-title">More <span class="text-gradient">About My Journey</span></h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto section-title" style="animation-delay: 0.2s;">
+                    Insights into my process, philosophy, or perhaps a blog.
+                </p>
+            </div>
+            <div class="max-w-3xl mx-auto bg-white p-8 md:p-12 rounded-lg shadow-xl slide-up">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-4">My Design Philosophy</h3>
+                <p class="text-gray-600 mb-4 text-lg">
+                    I believe that great design is not just about aesthetics, but about solving problems and creating meaningful connections. My approach is user-centric, focusing on understanding the needs and behaviors of the target audience to deliver solutions that are both beautiful and functional.
+                </p>
+                <p class="text-gray-600 mb-4 text-lg">
+                    Collaboration is key. I enjoy working closely with clients and teams to iterate on ideas and achieve the best possible outcomes. Continuous learning and staying updated with the latest design trends and technologies are integral to my practice.
+                </p>
+                <img src="https://via.placeholder.com/800x400.png?text=Design+Process+Visualization" alt="Design Process" class="rounded-lg my-6 shadow-md">
+                <a href="#" class="btn-primary text-white px-6 py-3 rounded-md font-semibold">Read More Articles</a>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 section-title">Get In <span class="text-gradient">Touch</span></h2>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto section-title" style="animation-delay: 0.2s;">
+                    Have a project or an idea? I'd love to hear from you.
+                </p>
+            </div>
+            <div class="max-w-2xl mx-auto bg-gray-50 p-8 md:p-10 rounded-xl shadow-2xl slide-up">
+                <form action="#" method="POST">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                            <input type="text" name="name" id="name" required class="form-input mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                            <input type="email" name="email" id="email" required class="form-input mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500">
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                        <input type="text" name="subject" id="subject" required class="form-input mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500">
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                        <textarea name="message" id="message" rows="5" required class="form-input mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-red-500 focus:border-red-500"></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" class="w-full btn-primary text-white px-6 py-3 rounded-md font-semibold text-lg">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-gray-800 text-gray-300 py-12">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-4">
+                <a href="#" class="text-xl font-bold text-white hover:text-red-400 transition-colors">PORTFOLIO - Haris F. Watson</a>
+            </div>
+            <div class="mb-4 space-x-6">
+                <a href="#" class="hover:text-red-400">Facebook</a>
+                <a href="#" class="hover:text-red-400">Twitter</a>
+                <a href="#" class="hover:text-red-400">LinkedIn</a>
+                <a href="#" class="hover:text-red-400">GitHub</a>
+            </div>
+            <p class="text-sm">&copy; <span id="currentYear"></span> Haris F. Watson. All rights reserved.</p>
+            <p class="text-xs mt-2">Designed with <span class="text-red-400">&hearts;</span> using Tailwind CSS & JavaScript.</p>
+        </div>
+    </footer>
+    <button id="scrollToTopBtn" class="hidden fixed bottom-8 right-8 bg-red-500 hover:bg-red-600 text-white p-3 rounded-full shadow-lg transition-opacity duration-300 z-50">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path></svg>
+    </button>
+
+
+    <script>
+        // JavaScript for interactivity and animations
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    // Close mobile menu after click
+                    if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                    // Update active link
+                    updateActiveLink(targetId);
+                }
+            });
+        });
+
+        // Active Link Highlighting on Scroll and Click
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section[id]');
+
+        function updateActiveLink(activeId) {
+            navLinks.forEach(link => {
+                link.classList.remove('active-link');
+                if (link.getAttribute('href') === activeId) {
+                    link.classList.add('active-link');
+                }
+            });
+            // For mobile menu as well
+            const mobileNavLinks = document.querySelectorAll('#mobile-menu a');
+             mobileNavLinks.forEach(link => {
+                link.classList.remove('font-bold', 'text-red-500'); // Example active classes for mobile
+                if (link.getAttribute('href') === activeId) {
+                    link.classList.add('font-bold', 'text-red-500');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
+                    current = '#' + section.getAttribute('id');
+                }
+            });
+            if (current) {
+                updateActiveLink(current);
+            }
+        });
+
+
+        // Header Style Change on Scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('py-3', 'shadow-xl');
+                header.classList.remove('py-4');
+            } else {
+                header.classList.remove('py-3', 'shadow-xl');
+                header.classList.add('py-4');
+            }
+        });
+
+        // Scroll to Top Button
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.remove('hidden');
+                scrollToTopBtn.classList.add('opacity-100');
+            } else {
+                scrollToTopBtn.classList.add('hidden');
+                scrollToTopBtn.classList.remove('opacity-100');
+            }
+        });
+
+        if (scrollToTopBtn) {
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+
+        // Intersection Observer for Animations on Scroll
+        const animatedElements = document.querySelectorAll('.slide-up, .slide-in-left, .slide-in-right, .fade-in, .section-title');
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // For section titles, add 'visible' class
+                    if (entry.target.classList.contains('section-title')) {
+                         entry.target.classList.add('visible');
+                    } else {
+                        // For other animations, trigger by adding a class or directly manipulating style
+                        // The CSS already handles animation start on class add/existence
+                        // Here we just ensure the class that triggers animation is set.
+                        // If your CSS uses animation-play-state, you could toggle it here.
+                        // For simplicity with Tailwind and simple keyframe animations,
+                        // the classes themselves trigger the animation once applied.
+                        // We can add a 'start-animation' class if needed for more control.
+                         entry.target.style.opacity = 1; // Ensure it becomes visible if opacity was 0
+                         if (entry.target.classList.contains('slide-up')) {
+                            entry.target.style.animationPlayState = 'running';
+                         }
+                         if (entry.target.classList.contains('slide-in-left')) {
+                            entry.target.style.animationPlayState = 'running';
+                         }
+                         if (entry.target.classList.contains('slide-in-right')) {
+                            entry.target.style.animationPlayState = 'running';
+                         }
+                         if (entry.target.classList.contains('fade-in')) {
+                            entry.target.style.animationPlayState = 'running';
+                         }
+                    }
+                    observer.unobserve(entry.target); // Optional: stop observing after animation
+                }
+            });
+        }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+
+        animatedElements.forEach(el => {
+            observer.observe(el);
+        });
+
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Initial active link check on page load
+        // (Ensure the correct section is highlighted if page loads scrolled to a section)
+        let initialCurrent = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (pageYOffset >= (sectionTop - header.offsetHeight - 50)) { // Adjust offset for fixed header
+                initialCurrent = '#' + section.getAttribute('id');
+            }
+        });
+        if (initialCurrent) {
+            updateActiveLink(initialCurrent);
+        } else {
+             updateActiveLink('#home'); // Default to home
+        }
+
+
+    </script>
+</body>
+</html>

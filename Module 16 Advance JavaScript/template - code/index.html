@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>John Doe - Business Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* Custom scrollbar (optional, for aesthetics) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Base font family */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light gray background */
+            color: #1f2937; /* Dark gray text */
+        }
+
+        /* Animation for elements appearing on scroll */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom styling for active nav link */
+        .nav-link-active {
+            color: #4f46e5; /* Indigo-600 */
+            font-weight: 600;
+        }
+        .nav-link-active::after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 2px;
+            background: #4f46e5; /* Indigo-600 */
+            margin: 4px auto 0;
+            transition: width 0.3s;
+        }
+        /* Style for project cards */
+        .project-card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header id="header" class="bg-white shadow-md fixed w-full z-50 top-0 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#hero" class="text-2xl font-bold text-indigo-600 hover:text-indigo-700 transition-colors">
+                YourBrand
+            </a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#hero" class="nav-link text-gray-700 hover:text-indigo-600 transition-colors px-3 py-2 rounded-md">Home</a>
+                <a href="#about" class="nav-link text-gray-700 hover:text-indigo-600 transition-colors px-3 py-2 rounded-md">About</a>
+                <a href="#services" class="nav-link text-gray-700 hover:text-indigo-600 transition-colors px-3 py-2 rounded-md">Services</a>
+                <a href="#portfolio" class="nav-link text-gray-700 hover:text-indigo-600 transition-colors px-3 py-2 rounded-md">Portfolio</a>
+                <a href="#contact" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition-transform transform hover:scale-105">Contact Us</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-700 hover:text-indigo-600 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg absolute w-full">
+            <a href="#hero" class="block text-gray-700 hover:bg-indigo-50 px-4 py-3 transition-colors">Home</a>
+            <a href="#about" class="block text-gray-700 hover:bg-indigo-50 px-4 py-3 transition-colors">About</a>
+            <a href="#services" class="block text-gray-700 hover:bg-indigo-50 px-4 py-3 transition-colors">Services</a>
+            <a href="#portfolio" class="block text-gray-700 hover:bg-indigo-50 px-4 py-3 transition-colors">Portfolio</a>
+            <a href="#contact" class="block text-gray-700 hover:bg-indigo-50 px-4 py-3 transition-colors">Contact Us</a>
+        </div>
+    </header>
+
+    <section id="hero" class="min-h-screen bg-[#8DD8FF] text-black flex items-center justify-center py-20 pt-32 md:pt-20 px-4">
+        <div class="text-center max-w-3xl reveal-on-scroll">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+                Innovative Solutions for Your Growing Business
+            </h1>
+            <p class="text-lg sm:text-xl md:text-2xl text-indigo-100 mb-10">
+                We craft stunning digital experiences and provide expert consultancy to help your business thrive in the modern landscape.
+            </p>
+            <div class="space-y-4 sm:space-y-0 sm:space-x-4">
+                 <a href="#portfolio" class="bg-white text-indigo-700 font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-indigo-50 transition-transform transform hover:scale-105 inline-block text-lg">
+                    View Our Work
+                </a>
+                <a href="#contact" class="border-2 border-white text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-white hover:text-indigo-700 transition-transform transform hover:scale-105 inline-block text-lg">
+                    Get a Quote
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 reveal-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">About Us</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    We are a passionate team of designers, developers, and strategists dedicated to delivering exceptional results.
+                </p>
+            </div>
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                <div class="md:w-1/2 reveal-on-scroll">
+                    <img src="https://placehold.co/600x400/E2E8F0/4A5568?text=Our+Team" alt="About Us Image" class="rounded-xl shadow-2xl w-full h-auto object-cover">
+                </div>
+                <div class="md:w-1/2 reveal-on-scroll">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Our Mission</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        To empower businesses with cutting-edge technology and creative solutions that drive growth and create lasting impact. We believe in collaboration, innovation, and a client-first approach.
+                    </p>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Our Values</h3>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                        <li><span class="font-medium text-indigo-600">Integrity:</span> Doing the right thing, always.</li>
+                        <li><span class="font-medium text-indigo-600">Innovation:</span> Constantly seeking better ways.</li>
+                        <li><span class="font-medium text-indigo-600">Excellence:</span> Striving for the highest quality.</li>
+                        <li><span class="font-medium text-indigo-600">Collaboration:</span> Working together for shared success.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-20 bg-indigo-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 reveal-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Services</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    We offer a comprehensive suite of services tailored to meet your business needs.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-lg reveal-on-scroll hover:shadow-xl transition-shadow duration-300">
+                    <div class="text-indigo-600 mb-4">
+                        <i class="fas fa-laptop-code fa-3x"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">Web Development</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Custom website design and development, e-commerce solutions, and web applications built for performance and scalability.
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg reveal-on-scroll hover:shadow-xl transition-shadow duration-300">
+                     <div class="text-indigo-600 mb-4">
+                        <i class="fas fa-palette fa-3x"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">UI/UX Design</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        User-centric design solutions that are intuitive, engaging, and visually stunning, enhancing user satisfaction.
+                    </p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg reveal-on-scroll hover:shadow-xl transition-shadow duration-300">
+                     <div class="text-indigo-600 mb-4">
+                        <i class="fas fa-chart-line fa-3x"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">Digital Marketing</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Strategic SEO, content marketing, and social media campaigns to boost your online presence and drive conversions.
+                    </p>
+                </div>
+                 <div class="bg-white p-8 rounded-xl shadow-lg reveal-on-scroll hover:shadow-xl transition-shadow duration-300">
+                     <div class="text-indigo-600 mb-4">
+                        <i class="fas fa-mobile-alt fa-3x"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">Mobile App Development</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Native and cross-platform mobile applications for iOS and Android, designed to meet your specific business objectives.
+                    </p>
+                </div>
+                 <div class="bg-white p-8 rounded-xl shadow-lg reveal-on-scroll hover:shadow-xl transition-shadow duration-300">
+                     <div class="text-indigo-600 mb-4">
+                        <i class="fas fa-cloud-upload-alt fa-3x"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">Cloud Solutions</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Scalable and secure cloud infrastructure setup, migration, and management services to optimize your operations.
+                    </p>
+                </div>
+                 <div class="bg-white p-8 rounded-xl shadow-lg reveal-on-scroll hover:shadow-xl transition-shadow duration-300">
+                     <div class="text-indigo-600 mb-4">
+                        <i class="fas fa-headset fa-3x"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-3">IT Consultancy</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Expert advice and strategic planning to help you leverage technology effectively and achieve your business goals.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 reveal-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Portfolio</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    A glimpse into some of the successful projects we've delivered for our clients.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg project-card reveal-on-scroll">
+                    <img src="https://placehold.co/600x400/A3BFFA/333333?text=Project+Alpha" alt="Project Alpha" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Project Alpha</h3>
+                        <p class="text-gray-600 text-sm mb-4">A cutting-edge e-commerce platform for a fashion retailer, boosting sales by 40%.</p>
+                        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium transition-colors">View Details <i class="fas fa-arrow-right text-xs ml-1"></i></a>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg project-card reveal-on-scroll">
+                    <img src="https://placehold.co/600x400/FBBF24/333333?text=Project+Beta" alt="Project Beta" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Project Beta</h3>
+                        <p class="text-gray-600 text-sm mb-4">A mobile application for a logistics company, streamlining their delivery operations.</p>
+                        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium transition-colors">View Details <i class="fas fa-arrow-right text-xs ml-1"></i></a>
+                    </div>
+                </div>
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg project-card reveal-on-scroll">
+                    <img src="https://placehold.co/600x400/34D399/333333?text=Project+Gamma" alt="Project Gamma" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Project Gamma</h3>
+                        <p class="text-gray-600 text-sm mb-4">A comprehensive UI/UX redesign for a SaaS product, improving user engagement.</p>
+                        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium transition-colors">View Details <i class="fas fa-arrow-right text-xs ml-1"></i></a>
+                    </div>
+                </div>
+                 <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg project-card reveal-on-scroll">
+                    <img src="https://placehold.co/600x400/F87171/333333?text=Project+Delta" alt="Project Delta" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">Project Delta</h3>
+                        <p class="text-gray-600 text-sm mb-4">A corporate website for a financial services firm, enhancing their brand presence.</p>
+                        <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium transition-colors">View Details <i class="fas fa-arrow-right text-xs ml-1"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-indigo-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 reveal-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Get In Touch</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    We'd love to hear from you! Whether you have a question about our services or want to start a project.
+                </p>
+            </div>
+            <div class="max-w-3xl mx-auto bg-white p-8 sm:p-10 rounded-xl shadow-2xl reveal-on-scroll">
+                <form id="contact-form">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                            <input type="text" name="name" id="name" required class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow" placeholder="John Doe">
+                            <p id="name-error" class="text-red-500 text-xs mt-1 hidden">Please enter your name.</p>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                            <input type="email" name="email" id="email" required class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow" placeholder="you@example.com">
+                            <p id="email-error" class="text-red-500 text-xs mt-1 hidden">Please enter a valid email.</p>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                        <input type="text" name="subject" id="subject" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow" placeholder="Inquiry about Web Development">
+                    </div>
+                    <div class="mb-8">
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                        <textarea name="message" id="message" rows="5" required class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-shadow" placeholder="Your message..."></textarea>
+                        <p id="message-error" class="text-red-500 text-xs mt-1 hidden">Please enter your message.</p>
+                    </div>
+                    <div>
+                        <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 text-lg">
+                            Send Message
+                        </button>
+                    </div>
+                    <p id="form-success" class="text-green-600 text-sm mt-4 hidden text-center">Thank you! Your message has been sent successfully.</p>
+                    <p id="form-failure" class="text-red-600 text-sm mt-4 hidden text-center">Oops! Something went wrong. Please try again.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-gray-300 py-12">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-6">
+                <a href="#hero" class="text-xl font-bold text-indigo-400 hover:text-indigo-300 transition-colors">
+                    YourBrand
+                </a>
+            </div>
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="#" class="hover:text-indigo-400 transition-colors"><i class="fab fa-facebook-f fa-lg"></i></a>
+                <a href="#" class="hover:text-indigo-400 transition-colors"><i class="fab fa-twitter fa-lg"></i></a>
+                <a href="#" class="hover:text-indigo-400 transition-colors"><i class="fab fa-linkedin-in fa-lg"></i></a>
+                <a href="#" class="hover:text-indigo-400 transition-colors"><i class="fab fa-instagram fa-lg"></i></a>
+                <a href="#" class="hover:text-indigo-400 transition-colors"><i class="fab fa-github fa-lg"></i></a>
+            </div>
+            <p class="text-sm">&copy; <span id="current-year"></span> YourBrand. All rights reserved.</p>
+            <p class="text-xs mt-2">Designed with <i class="fas fa-heart text-red-500"></i> using Tailwind CSS & JavaScript.</p>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="hidden fixed bottom-8 right-8 bg-indigo-600 hover:bg-indigo-700 text-white w-10 h-10 rounded-full shadow-lg flex items-center justify-center transition-opacity duration-300 z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Mobile Menu Toggle ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                    // Toggle ARIA expanded state for accessibility
+                    const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
+                    mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
+                    mobileMenu.setAttribute('aria-hidden', isExpanded);
+                });
+
+                // Close mobile menu when a link is clicked
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenuButton.setAttribute('aria-expanded', 'false');
+                        mobileMenu.setAttribute('aria-hidden', 'true');
+                    });
+                });
+            }
+
+            // --- Smooth Scrolling for Anchor Links ---
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        // Consider header height for accurate scroll position
+                        const headerOffset = document.getElementById('header')?.offsetHeight || 0;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // --- Active Navigation Link Highlighting ---
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+            const sections = document.querySelectorAll('section[id]');
+            const headerHeight = document.getElementById('header')?.offsetHeight || 70; // Estimate header height
+
+            function changeNav() {
+                let index = sections.length;
+
+                while(--index && window.scrollY + headerHeight < sections[index].offsetTop) {}
+                
+                navLinks.forEach((link) => link.classList.remove('nav-link-active'));
+                // Check if a corresponding navLink exists before adding class
+                if (navLinks[index]) {
+                     // Find the specific link that matches the section ID
+                    const activeSectionId = sections[index].id;
+                    const activeLink = document.querySelector(`nav a[href="#${activeSectionId}"]`);
+                    if (activeLink) {
+                        activeLink.classList.add('nav-link-active');
+                    }
+                }
+            }
+            // Initial check
+            changeNav();
+            window.addEventListener('scroll', changeNav);
+
+
+            // --- Scroll Animations (Reveal on Scroll) ---
+            const revealElements = document.querySelectorAll('.reveal-on-scroll');
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Optional: stop observing once visible
+                    }
+                });
+            }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+
+            revealElements.forEach(el => {
+                revealObserver.observe(el);
+            });
+
+            // --- Sticky Header Shrink/Style on Scroll (Optional) ---
+            const header = document.getElementById('header');
+            if (header) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) {
+                        header.classList.add('py-3', 'shadow-xl');
+                        header.classList.remove('py-4');
+                    } else {
+                        header.classList.add('py-4');
+                        header.classList.remove('py-3', 'shadow-xl');
+                    }
+                });
+            }
+
+            // --- Contact Form Validation & Submission ---
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(event) {
+                    event.preventDefault(); // Prevent default submission for now
+
+                    // Clear previous messages
+                    document.getElementById('name-error').classList.add('hidden');
+                    document.getElementById('email-error').classList.add('hidden');
+                    document.getElementById('message-error').classList.add('hidden');
+                    document.getElementById('form-success').classList.add('hidden');
+                    document.getElementById('form-failure').classList.add('hidden');
+
+                    // Get form values
+                    const name = document.getElementById('name').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const message = document.getElementById('message').value.trim();
+                    let isValid = true;
+
+                    // Basic Validation
+                    if (name === '') {
+                        document.getElementById('name-error').classList.remove('hidden');
+                        isValid = false;
+                    }
+                    if (email === '' || !/^\S+@\S+\.\S+$/.test(email)) {
+                        document.getElementById('email-error').classList.remove('hidden');
+                        isValid = false;
+                    }
+                    if (message === '') {
+                        document.getElementById('message-error').classList.remove('hidden');
+                        isValid = false;
+                    }
+
+                    if (isValid) {
+                        // Simulate form submission (replace with actual AJAX call to backend/service)
+                        console.log('Form data:', { name, email, subject: document.getElementById('subject').value, message });
+                        
+                        // Show success message (simulation)
+                        setTimeout(() => {
+                            document.getElementById('form-success').classList.remove('hidden');
+                            contactForm.reset(); // Clear the form
+                        }, 1000);
+
+                        // To simulate failure:
+                        // setTimeout(() => {
+                        //     document.getElementById('form-failure').classList.remove('hidden');
+                        // }, 1000);
+                    }
+                });
+            }
+
+            // --- Footer: Current Year ---
+            const currentYearSpan = document.getElementById('current-year');
+            if (currentYearSpan) {
+                currentYearSpan.textContent = new Date().getFullYear();
+            }
+
+            // --- Back to Top Button ---
+            const backToTopButton = document.getElementById('back-to-top');
+            if (backToTopButton) {
+                window.addEventListener('scroll', () => {
+                    if (window.pageYOffset > 300) { // Show button after scrolling 300px
+                        backToTopButton.classList.remove('hidden');
+                        backToTopButton.classList.add('opacity-100');
+                    } else {
+                        backToTopButton.classList.add('hidden');
+                        backToTopButton.classList.remove('opacity-100');
+                    }
+                });
+
+                backToTopButton.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

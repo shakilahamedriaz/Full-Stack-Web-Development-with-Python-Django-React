@@ -53,7 +53,7 @@
 //  Fetch Function + REST API
 const productList = document.getElementById('product-list');
 
-fetch('./products.json')
+fetch('./product.json')
     .then((response) => response.json())
     .then((products) => {
         products.forEach((product) => {

@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Warner - Creative Technologist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* Base font family */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #111827; /* Dark Gray 900 */
+            color: #e5e7eb; /* Gray 200 */
+            overflow-x: hidden; /* Prevent horizontal scroll from animations */
+        }
+
+        /* Custom scrollbar (optional, for aesthetics in dark mode) */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1f2937; /* Dark Gray 800 */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4f46e5; /* Indigo 600 */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6366f1; /* Indigo 500 */
+        }
+        
+        /* Preloader Styles */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #111827;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+        }
+        #preloader.loaded {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #374151; /* Gray 700 */
+            border-top-color: #6366f1; /* Indigo 500 */
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Animated Gradient Background for Hero */
+        .animated-gradient-bg {
+            background: linear-gradient(-45deg, #1e3a8a, #4f46e5, #7c3aed, #c026d3); /* Blue-800, Indigo-600, Purple-600, Fuchsia-600 */
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Text Animations */
+        .animate-slide-in-left {
+            animation: slideInLeft 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        @keyframes slideInLeft {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        .animate-slide-in-right {
+            animation: slideInRight 0.8s ease-out forwards;
+            opacity: 0;
+        }
+        @keyframes slideInRight {
+            from { transform: translateX(50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+        @keyframes fadeInUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        /* Staggered animation helper */
+        .stagger-children > * {
+            opacity: 0;
+        }
+
+        /* Navigation Link Active State */
+        .nav-link-active {
+            color: #818cf8; /* Indigo 400 */
+            position: relative;
+        }
+        .nav-link-active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background-color: #818cf8; /* Indigo 400 */
+            border-radius: 50%;
+            animation: pulseDot 1.5s infinite ease-in-out;
+        }
+        @keyframes pulseDot {
+            0%, 100% { transform: translateX(-50%) scale(1); opacity: 1; }
+            50% { transform: translateX(-50%) scale(1.5); opacity: 0.7; }
+        }
+        
+        /* Section Reveal Animation */
+        .section-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .section-reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Project Card Hover Effect */
+        .project-card .project-overlay {
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+        }
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+        .project-card img {
+            transition: transform 0.4s ease-in-out;
+        }
+        .project-card:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Service Card Hover Effect */
+        .service-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(79, 70, 229, 0.2), 0 10px 10px -5px rgba(79, 70, 229, 0.1); /* Indigo shadow */
+        }
+        
+        /* Input focus style */
+        .form-input:focus {
+            border-color: #6366f1; /* Indigo 500 */
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3); /* Indigo 500 with opacity */
+        }
+
+        /* Button hover effect */
+        .btn-primary {
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.3), 0 4px 6px -2px rgba(99, 102, 241, 0.2);
+        }
+        .btn-secondary {
+             transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        }
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(200, 200, 200, 0.1), 0 4px 6px -2px rgba(200, 200, 200, 0.05);
+        }
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <div id="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <header id="header" class="bg-gray-900/80 backdrop-blur-md shadow-lg fixed w-full z-50 top-0 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#hero" class="text-3xl font-bold tracking-tight">
+                <span class="text-indigo-400">A</span><span class="text-gray-200">W.</span>
+            </a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#hero" class="nav-link text-gray-300 hover:text-indigo-400 transition-colors duration-300 text-sm font-medium">Home</a>
+                <a href="#about" class="nav-link text-gray-300 hover:text-indigo-400 transition-colors duration-300 text-sm font-medium">About</a>
+                <a href="#services" class="nav-link text-gray-300 hover:text-indigo-400 transition-colors duration-300 text-sm font-medium">Services</a>
+                <a href="#portfolio" class="nav-link text-gray-300 hover:text-indigo-400 transition-colors duration-300 text-sm font-medium">Portfolio</a>
+                <a href="#contact" class="bg-indigo-500 hover:bg-indigo-600 text-white font-medium py-2.5 px-6 rounded-lg shadow-md btn-primary text-sm">Contact</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-300 hover:text-indigo-400 focus:outline-none">
+                    <i class="fas fa-bars fa-lg"></i>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="md:hidden hidden bg-gray-800 shadow-xl absolute w-full">
+            <a href="#hero" class="block text-gray-300 hover:bg-gray-700 hover:text-indigo-300 px-5 py-3 transition-colors duration-200">Home</a>
+            <a href="#about" class="block text-gray-300 hover:bg-gray-700 hover:text-indigo-300 px-5 py-3 transition-colors duration-200">About</a>
+            <a href="#services" class="block text-gray-300 hover:bg-gray-700 hover:text-indigo-300 px-5 py-3 transition-colors duration-200">Services</a>
+            <a href="#portfolio" class="block text-gray-300 hover:bg-gray-700 hover:text-indigo-300 px-5 py-3 transition-colors duration-200">Portfolio</a>
+            <a href="#contact" class="block text-gray-300 hover:bg-gray-700 hover:text-indigo-300 px-5 py-3 transition-colors duration-200">Contact</a>
+        </div>
+    </header>
+
+    <section id="hero" class="min-h-screen animated-gradient-bg text-white flex flex-col items-center justify-center py-20 pt-32 md:pt-20 px-4 text-center relative overflow-hidden">
+        <div class="absolute top-1/4 left-1/4 w-32 h-32 bg-white/5 rounded-full filter blur-2xl animate-pulse animation-delay-200"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-48 h-48 bg-white/5 rounded-lg filter blur-3xl animate-pulse animation-delay-400 transform rotate-45"></div>
+        
+        <div class="z-10 stagger-children">
+            <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 leading-tight animate-fade-in-up" style="animation-delay: 0.2s;">
+                Alex Warner
+            </h1>
+            <p class="text-xl sm:text-2xl md:text-3xl text-indigo-100 mb-4 animate-fade-in-up" style="animation-delay: 0.4s;">
+                Creative Technologist & Digital Artisan
+            </p>
+            <p class="text-md sm:text-lg text-gray-300 mb-10 max-w-2xl mx-auto animate-fade-in-up" style="animation-delay: 0.6s;">
+                I design and develop modern, responsive, and engaging digital experiences that solve problems and delight users.
+            </p>
+            <div class="space-y-4 sm:space-y-0 sm:space-x-6 animate-fade-in-up" style="animation-delay: 0.8s;">
+                 <a href="#portfolio" class="bg-white text-indigo-700 font-semibold py-3 px-10 rounded-lg shadow-xl hover:bg-indigo-100 transition-all duration-300 transform hover:scale-105 inline-block text-lg btn-primary">
+                    View My Work
+                </a>
+                <a href="#contact" class="border-2 border-indigo-300 text-indigo-100 font-semibold py-3 px-10 rounded-lg shadow-lg hover:bg-indigo-100 hover:text-indigo-700 transition-all duration-300 transform hover:scale-105 inline-block text-lg btn-secondary">
+                    Let's Talk
+                </a>
+            </div>
+        </div>
+         <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce z-10 animate-fade-in-up" style="animation-delay: 1s;">
+            <a href="#about" aria-label="Scroll to about section">
+                <i class="fas fa-chevron-down fa-2x text-indigo-200 hover:text-white transition-colors"></i>
+            </a>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 bg-gray-800 section-reveal">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500 mb-3">About Me</h2>
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+                    Driven by curiosity and a passion for technology that makes a difference.
+                </p>
+            </div>
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12 lg:gap-16">
+                <div class="md:w-2/5 animate-slide-in-left">
+                    <img src="https://placehold.co/500x600/374151/E5E7EB?text=Alex+Warner" alt="Alex Warner" class="rounded-xl shadow-2xl w-full h-auto object-cover" style="filter: grayscale(30%) contrast(110%);">
+                </div>
+                <div class="md:w-3/5 animate-slide-in-right stagger-children" style="animation-delay: 0.2s;">
+                    <h3 class="text-2xl lg:text-3xl font-semibold text-gray-100 mb-5" style="animation-delay: 0.3s;">Who I Am</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed lg:text-lg" style="animation-delay: 0.4s;">
+                        Hello! I'm Alex, a versatile creative technologist with a knack for blending design aesthetics with robust development. With over <span class="text-indigo-400 font-semibold">5 years of experience</span>, I've helped businesses transform their digital presence through innovative web solutions, intuitive user interfaces, and strategic thinking.
+                    </p>
+                    <p class="text-gray-400 mb-8 leading-relaxed lg:text-lg" style="animation-delay: 0.5s;">
+                        My approach is collaborative and user-focused. I believe the best digital products are born from a deep understanding of user needs and business goals, coupled with a relentless pursuit of quality and craftsmanship.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 text-gray-300" style="animation-delay: 0.6s;">
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-indigo-400 mt-1.5"></i>
+                            <p><span class="font-semibold">Expertise:</span> Full-Stack Development, UI/UX Design</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-indigo-400 mt-1.5"></i>
+                            <p><span class="font-semibold">Tools:</span> JavaScript, React, Node.js, Figma, Tailwind CSS</p>
+                        </div>
+                         <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-indigo-400 mt-1.5"></i>
+                            <p><span class="font-semibold">Passion:</span> Clean Code, Pixel-Perfect Design</p>
+                        </div>
+                         <div class="flex items-start space-x-3">
+                            <i class="fas fa-check-circle text-indigo-400 mt-1.5"></i>
+                            <p><span class="font-semibold">Availability:</span> Open for new projects</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-24 bg-gray-900 section-reveal">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500 mb-3">What I Offer</h2>
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+                    Crafting digital solutions that are not only functional but also beautiful and user-friendly.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 stagger-children">
+                <div class="bg-gray-800 p-8 rounded-xl shadow-xl service-card" style="animation-delay: 0.1s;">
+                    <div class="text-indigo-400 mb-6 text-4xl">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-100 mb-3">Custom Web Development</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Building bespoke websites and web applications from scratch, tailored to your unique requirements using modern technologies.
+                    </p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-xl shadow-xl service-card" style="animation-delay: 0.2s;">
+                     <div class="text-indigo-400 mb-6 text-4xl">
+                        <i class="fas fa-object-group"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-100 mb-3">UI/UX Design & Strategy</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Designing intuitive and engaging user interfaces, backed by user research and a solid UX strategy to maximize usability.
+                    </p>
+                </div>
+                <div class="bg-gray-800 p-8 rounded-xl shadow-xl service-card" style="animation-delay: 0.3s;">
+                     <div class="text-indigo-400 mb-6 text-4xl">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-gray-100 mb-3">Performance Optimization</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Enhancing website speed, responsiveness, and overall performance for a better user experience and improved SEO.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="py-24 bg-gray-800 section-reveal">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500 mb-3">Featured Projects</h2>
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+                    A selection of projects that showcase my skills and creativity.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 stagger-children">
+                <div class="bg-gray-700 rounded-xl overflow-hidden shadow-2xl project-card relative group" style="animation-delay: 0.1s;">
+                    <img src="https://placehold.co/600x450/4B5563/E0E7FF?text=Project+Nova" alt="Project Nova" class="w-full h-64 object-cover">
+                    <div class="absolute inset-0 bg-black/70 flex flex-col items-center justify-center p-6 text-center project-overlay">
+                        <h3 class="text-2xl font-semibold text-white mb-2">Project Nova</h3>
+                        <p class="text-indigo-200 text-sm mb-4">Enterprise SaaS Platform UI/UX</p>
+                        <a href="#" class="bg-indigo-500 hover:bg-indigo-600 text-white py-2 px-5 rounded-lg text-sm font-medium btn-primary">View Case Study</a>
+                    </div>
+                </div>
+                <div class="bg-gray-700 rounded-xl overflow-hidden shadow-2xl project-card relative group" style="animation-delay: 0.2s;">
+                    <img src="https://placehold.co/600x450/500724/FBCFE8?text=Project+Orion" alt="Project Orion" class="w-full h-64 object-cover">
+                    <div class="absolute inset-0 bg-black/70 flex flex-col items-center justify-center p-6 text-center project-overlay">
+                        <h3 class="text-2xl font-semibold text-white mb-2">Project Orion</h3>
+                        <p class="text-indigo-200 text-sm mb-4">E-commerce Redesign & Development</p>
+                        <a href="#" class="bg-indigo-500 hover:bg-indigo-600 text-white py-2 px-5 rounded-lg text-sm font-medium btn-primary">View Case Study</a>
+                    </div>
+                </div>
+                <div class="bg-gray-700 rounded-xl overflow-hidden shadow-2xl project-card relative group" style="animation-delay: 0.3s;">
+                    <img src="https://placehold.co/600x450/065F46/D1FAE5?text=Project+Lyra" alt="Project Lyra" class="w-full h-64 object-cover">
+                    <div class="absolute inset-0 bg-black/70 flex flex-col items-center justify-center p-6 text-center project-overlay">
+                        <h3 class="text-2xl font-semibold text-white mb-2">Project Lyra</h3>
+                        <p class="text-indigo-200 text-sm mb-4">Interactive Portfolio Website</p>
+                        <a href="#" class="bg-indigo-500 hover:bg-indigo-600 text-white py-2 px-5 rounded-lg text-sm font-medium btn-primary">View Case Study</a>
+                    </div>
+                </div>
+            </div>
+             <div class="text-center mt-16" style="animation-delay: 0.4s;">
+                <a href="#" class="text-indigo-400 hover:text-indigo-300 font-semibold text-lg group">
+                    See More Projects <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-gray-900 section-reveal">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-500 mb-3">Let's Create Together</h2>
+                <p class="text-lg text-gray-400 max-w-2xl mx-auto">
+                    Have a project in mind or just want to say hi? Feel free to reach out.
+                </p>
+            </div>
+            <div class="max-w-2xl mx-auto bg-gray-800 p-8 sm:p-10 rounded-xl shadow-2xl">
+                <form id="contact-form">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-300 mb-1.5">Full Name</label>
+                            <input type="text" name="name" id="name" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 text-gray-200 rounded-lg focus:outline-none form-input transition-colors" placeholder="Your Name">
+                            <p id="name-error" class="text-red-400 text-xs mt-1.5 hidden">Please enter your name.</p>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-300 mb-1.5">Email Address</label>
+                            <input type="email" name="email" id="email" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 text-gray-200 rounded-lg focus:outline-none form-input transition-colors" placeholder="you@example.com">
+                            <p id="email-error" class="text-red-400 text-xs mt-1.5 hidden">Please enter a valid email.</p>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label for="subject" class="block text-sm font-medium text-gray-300 mb-1.5">Subject</label>
+                        <input type="text" name="subject" id="subject" class="w-full px-4 py-3 bg-gray-700 border border-gray-600 text-gray-200 rounded-lg focus:outline-none form-input transition-colors" placeholder="Project Inquiry">
+                    </div>
+                    <div class="mb-8">
+                        <label for="message" class="block text-sm font-medium text-gray-300 mb-1.5">Message</label>
+                        <textarea name="message" id="message" rows="5" required class="w-full px-4 py-3 bg-gray-700 border border-gray-600 text-gray-200 rounded-lg focus:outline-none form-input transition-colors" placeholder="Tell me about your project..."></textarea>
+                        <p id="message-error" class="text-red-400 text-xs mt-1.5 hidden">Please enter your message.</p>
+                    </div>
+                    <div>
+                        <button type="submit" class="w-full bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-3.5 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-lg btn-primary">
+                            Send Message <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </div>
+                    <p id="form-success" class="text-green-400 text-sm mt-4 hidden text-center">Thank you! Your message has been sent successfully.</p>
+                    <p id="form-failure" class="text-red-400 text-sm mt-4 hidden text-center">Oops! Something went wrong. Please try again.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 border-t border-gray-700/50 text-gray-400 py-12">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-6">
+                 <a href="#hero" class="text-2xl font-bold tracking-tight">
+                    <span class="text-indigo-400">A</span><span class="text-gray-200">W.</span>
+                </a>
+            </div>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="hover:text-indigo-400 transition-colors text-xl"><i class="fab fa-github"></i></a>
+                <a href="#" class="hover:text-indigo-400 transition-colors text-xl"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="hover:text-indigo-400 transition-colors text-xl"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-indigo-400 transition-colors text-xl"><i class="fab fa-dribbble"></i></a>
+            </div>
+            <p class="text-sm">&copy; <span id="current-year"></span> Alex Warner. All rights reserved.</p>
+            <p class="text-xs mt-2">Crafted with <i class="fas fa-heart text-indigo-400"></i> and modern web technologies.</p>
+        </div>
+    </footer>
+
+    <button id="back-to-top" class="hidden fixed bottom-6 right-6 bg-indigo-500 hover:bg-indigo-600 text-white w-12 h-12 rounded-full shadow-xl flex items-center justify-center transition-opacity duration-300 z-50 btn-primary">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // --- Preloader ---
+            const preloader = document.getElementById('preloader');
+            window.addEventListener('load', () => {
+                if (preloader) {
+                    preloader.classList.add('loaded');
+                }
+            });
+
+            // --- Mobile Menu Toggle ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuIcon = mobileMenuButton ? mobileMenuButton.querySelector('i') : null;
+
+            if (mobileMenuButton && mobileMenu && mobileMenuIcon) {
+                mobileMenuButton.addEventListener('click', () => {
+                    const isHidden = mobileMenu.classList.toggle('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', !isHidden);
+                    mobileMenu.setAttribute('aria-hidden', isHidden);
+                    if (isHidden) {
+                        mobileMenuIcon.classList.remove('fa-times');
+                        mobileMenuIcon.classList.add('fa-bars');
+                    } else {
+                        mobileMenuIcon.classList.remove('fa-bars');
+                        mobileMenuIcon.classList.add('fa-times');
+                    }
+                });
+
+                mobileMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenuButton.setAttribute('aria-expanded', 'false');
+                        mobileMenu.setAttribute('aria-hidden', 'true');
+                        mobileMenuIcon.classList.remove('fa-times');
+                        mobileMenuIcon.classList.add('fa-bars');
+                    });
+                });
+            }
+
+            // --- Smooth Scrolling & Active Nav Link ---
+            const header = document.getElementById('header');
+            const headerHeight = header ? header.offsetHeight : 70;
+            const navLinks = document.querySelectorAll('nav a[href^="#"]'); // Includes mobile and desktop
+            const sections = document.querySelectorAll('section[id]');
+
+            function updateActiveLink() {
+                let currentSectionId = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - headerHeight - 50) { // Added a small offset
+                        currentSectionId = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('nav-link-active');
+                    if (link.getAttribute('href') === `#${currentSectionId}`) {
+                        link.classList.add('nav-link-active');
+                    }
+                });
+            }
+            
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                    }
+                });
+            });
+            
+            window.addEventListener('scroll', () => {
+                updateActiveLink();
+                // Sticky header style change
+                if (header) {
+                    if (window.scrollY > 50) {
+                        header.classList.add('py-2.5', 'shadow-2xl');
+                        header.classList.remove('py-3');
+                    } else {
+                        header.classList.add('py-3');
+                        header.classList.remove('py-2.5', 'shadow-2xl');
+                    }
+                }
+            });
+            updateActiveLink(); // Initial call
+
+            // --- Staggered Animations for Children ---
+            function animateStaggeredChildren(containerSelector) {
+                const containers = document.querySelectorAll(containerSelector);
+                containers.forEach(container => {
+                    const children = Array.from(container.children);
+                    children.forEach((child, index) => {
+                        // Ensure the child has opacity 0 initially via class or style
+                        child.style.animationDelay = `${index * 0.15}s`; // Adjust stagger timing
+                        // Add animation class if not already present
+                        if (!child.classList.contains('animate-fade-in-up') && !child.classList.contains('animate-slide-in-left') && !child.classList.contains('animate-slide-in-right')) {
+                             child.classList.add('animate-fade-in-up'); // Default stagger animation
+                        }
+                    });
+                });
+            }
+            // Apply stagger to specific containers (can be done via IntersectionObserver too)
+            // animateStaggeredChildren('.stagger-children'); // Call this when sections become visible for better effect
+
+            // --- Section Reveal Animations ---
+            const sectionRevealElements = document.querySelectorAll('.section-reveal, .stagger-children'); // Include stagger-children for initial animation
+            const sectionObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        if (entry.target.classList.contains('stagger-children')) {
+                             // Trigger individual child animations
+                            Array.from(entry.target.children).forEach((child, index) => {
+                                child.style.animationDelay = `${index * 0.15}s`;
+                                // Determine which animation class to add or rely on existing ones
+                                if (child.classList.contains('animate-slide-in-left') || child.classList.contains('animate-slide-in-right')) {
+                                    // These might already be set, or you can add them dynamically
+                                } else {
+                                    child.classList.add('animate-fade-in-up');
+                                }
+                                child.style.opacity = '1'; // Make sure it becomes visible
+                            });
+                        }
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            sectionRevealElements.forEach(el => {
+                sectionObserver.observe(el);
+            });
+
+
+            // --- Contact Form Validation & Submission ---
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(event) {
+                    event.preventDefault();
+                    document.getElementById('name-error').classList.add('hidden');
+                    document.getElementById('email-error').classList.add('hidden');
+                    document.getElementById('message-error').classList.add('hidden');
+                    document.getElementById('form-success').classList.add('hidden');
+                    document.getElementById('form-failure').classList.add('hidden');
+
+                    const name = document.getElementById('name').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const message = document.getElementById('message').value.trim();
+                    let isValid = true;
+
+                    if (name === '') {
+                        document.getElementById('name-error').classList.remove('hidden');
+                        isValid = false;
+                    }
+                    if (email === '' || !/^\S+@\S+\.\S+$/.test(email)) {
+                        document.getElementById('email-error').classList.remove('hidden');
+                        isValid = false;
+                    }
+                    if (message === '') {
+                        document.getElementById('message-error').classList.remove('hidden');
+                        isValid = false;
+                    }
+
+                    if (isValid) {
+                        console.log('Form data:', { name, email, subject: document.getElementById('subject').value, message });
+                        setTimeout(() => {
+                            document.getElementById('form-success').classList.remove('hidden');
+                            contactForm.reset();
+                        }, 1000);
+                    }
+                });
+            }
+
+            // --- Footer: Current Year ---
+            const currentYearSpan = document.getElementById('current-year');
+            if (currentYearSpan) {
+                currentYearSpan.textContent = new Date().getFullYear();
+            }
+
+            // --- Back to Top Button ---
+            const backToTopButton = document.getElementById('back-to-top');
+            if (backToTopButton) {
+                window.addEventListener('scroll', () => {
+                    if (window.pageYOffset > 300) {
+                        backToTopButton.classList.remove('hidden');
+                        backToTopButton.classList.add('opacity-100');
+                    } else {
+                        backToTopButton.classList.add('hidden');
+                        backToTopButton.classList.remove('opacity-100');
+                    }
+                });
+                backToTopButton.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
