@@ -1,0 +1,8 @@
+https://github.com/xaadu/simple-todo-fastapi
+
+https://fakestoreapi.com/
+
+https://jsonplaceholder.typicode.com/
+
+
+https://www.digitalocean.com/community/tutorials/how-to-use-the-javascript-fetch-api-to-get-data
