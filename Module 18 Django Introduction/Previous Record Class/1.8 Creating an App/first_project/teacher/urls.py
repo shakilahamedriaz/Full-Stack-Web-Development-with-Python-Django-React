@@ -4,6 +4,8 @@ from .import views
 
 urlpatterns = [
     path('home/', views.home),
+    path('profile/', views.profile),
+
 ]
 
 # student/profile

@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 # Create your views here.
-def profile(reqquest):
-    return HttpResponse("<h1>Welcome to the Student Profile Page</h1>")
+# def profile(reqquest):
+#     return HttpResponse("<h1>Welcome to the Student Profile Page</h1>")
 
 
 def home(request):
@@ -12,3 +12,7 @@ def home(request):
 
 def account(request):
     return HttpResponse("<h1>Welcome to the Student Account Page</h1>")
+
+
+def profile(request):
+    return render(request, 'student/index.html')

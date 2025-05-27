@@ -26,6 +26,7 @@ urlpatterns = [
     path('', views.home),
 
     path('teacher/', include('teacher.urls')),
+   
 ]
 
 # student/profile
