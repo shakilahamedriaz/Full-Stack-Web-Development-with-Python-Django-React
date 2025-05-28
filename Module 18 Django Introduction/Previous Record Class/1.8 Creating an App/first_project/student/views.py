@@ -15,4 +15,44 @@ def account(request):
 
 
 def profile(request):
-    return render(request, 'student/index.html')
+    user_data = {
+        'name': 'Shakil',
+        'age': 22,
+        'email': 'shakil@example.com'
+    }
+
+    marks = [
+        {
+            "id": 1,
+            "subject": "Math",
+            "marks": 80
+        },
+        {
+            "id": 2,
+            "subject": "Physics",
+            "marks": 72
+        },
+        {
+            "id": 3,
+            "subject": "Machine Learning",
+            "marks": 55
+        },
+        {
+            "id": 4,
+            "subject": "Data Science",
+            "marks": 75
+        }
+        
+    ]
+
+    context = {
+        'user_data': user_data,
+        'marks': marks,
+        'age': 20,
+        'Name': "Shakil Ahamed",
+        'lst': ["apple", "orange", "banana"]
+    }
+
+
+    return render(request, 'student/index.html', context)
+
