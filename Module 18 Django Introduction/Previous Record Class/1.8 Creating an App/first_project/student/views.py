@@ -56,3 +56,7 @@ def profile(request):
 
     return render(request, 'student/index.html', context)
 
+
+def profile(request):
+    return render(request, 'teacher/index.html')    
+

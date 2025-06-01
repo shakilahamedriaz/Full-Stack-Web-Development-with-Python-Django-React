@@ -1,15 +1,19 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'teacher/css/st.css' %}"/>
 </head>
 <body>
+
     <h1>Rendering Inside from the teacher app</h1>
     <p>This is the teacher index page.</p>
 
-
+    <img src="{%static 'teacher/images/cat.jpg' %}" alt="Cat Image" width="300" height="auto">
 
 </body>
 </html>
