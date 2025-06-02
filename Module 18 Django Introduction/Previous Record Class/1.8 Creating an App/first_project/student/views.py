@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .import models
 
 # Create your views here.
 # def profile(reqquest):
@@ -53,7 +54,8 @@ def profile(request):
         'lst': ["apple", "orange", "banana"]
     }
 
-
+    student_data = models.Student.objects.all()
+    print(student_data)
     return render(request, 'student/index.html', context)
 
 
