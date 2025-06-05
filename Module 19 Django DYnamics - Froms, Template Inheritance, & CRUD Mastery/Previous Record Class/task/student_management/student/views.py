@@ -16,6 +16,7 @@ def home(request):
         phone = request.POST.get('phone')
         password = request.POST.get('password')
         checkbox = request.POST.get('checkbox')
+        photo = request.FILES.get('photo')
 
         if checkbox == 'on':
             checkbox = True
@@ -27,7 +28,8 @@ def home(request):
             email=email,
             phone=phone,
             password=password,
-            checkbox=checkbox
+            checkbox=checkbox,
+            photo=photo
         ) # student classer ekta object create korlam
         student.save() #student table ekt record make korlam
         #return render(request, 'student/student.html')

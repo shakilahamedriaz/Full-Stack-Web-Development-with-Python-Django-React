@@ -54,14 +54,15 @@
     </div>
   </nav>
 
-  <form class="container" method="post">
+  <form class="container" method="post" enctype="multipart/form-data">
     {% csrf_token %}
 
     <h1> Student Form </h1>
 
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label">Email</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" required>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email"
+        required>
     </div>
 
     <div class="mb-3">
@@ -80,6 +81,10 @@
       <label for="exampleInputPassword1" class="form-label">Password</label>
       <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
     </div>
+    <div class="mb-3">
+      <label for="formFile" class="form-label">upload Photo</label>
+      <input class="form-control" type="file" id="formFile" name="photo" required>
+    </div>
     <div class="mb-3 form-check">
       <input type="checkbox" class="form-check-input" id="exampleCheck1" name="checkbox" required>
       <label class="form-check-label" for="exampleCheck1">Check me out</label>
@@ -92,6 +97,6 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
 
-  </body>
+</body>
 
 </html>
