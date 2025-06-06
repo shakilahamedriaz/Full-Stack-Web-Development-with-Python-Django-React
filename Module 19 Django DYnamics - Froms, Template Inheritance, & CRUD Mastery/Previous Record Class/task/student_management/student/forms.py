@@ -4,6 +4,7 @@ from .import models
 from django import forms
 
 class StudentForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput())
     class Meta:
         model = models.Student
         fields = '__all__'
@@ -15,3 +16,5 @@ class StudentForm(forms.ModelForm):
         help_texts = {
             'email': "Email will be confidential",
         }
+
+        
