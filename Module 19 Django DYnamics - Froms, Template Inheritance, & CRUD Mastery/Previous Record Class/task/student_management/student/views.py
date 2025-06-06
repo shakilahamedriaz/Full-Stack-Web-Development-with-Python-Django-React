@@ -52,5 +52,10 @@ def home(request):
         
     else:
         form = forms.StudentForm()
-    return render(request, 'student/index.html', {'form': form})  #User get request korche
-    
+    return render(request, 'student/index.html', {'form': form}) 
+
+ #User get request korche
+
+def student_list(request):
+    students = models.Student.objects.all()  #All data fetch korlam
+    return render(request, 'student/index.html', {'students': students})  #data ke template e pathalam
