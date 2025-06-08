@@ -26,10 +26,10 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" href="{% url 'create_student' %}">Create Student</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
@@ -96,26 +96,8 @@
     <button type="submit" class="btn btn-primary">Submit</button>
   </form> -->
 
-  <h1 class="container" >Student List</h1>
+  <h1 class="container" >Create New Student</h1>
 
-
-<div class="d-flex flex-wrap justify-content-between container">
-   {% for student in students %}
-  <div class="card col-3" style="width: 18rem;">
-    <img src="{{student.photos.url}}" class="card-img-top" alt="{{ student.name }}'s photo here", width="200" ">
-    <div class="card-body">
-      <h5 class="card-title">{{ student.name }}</h5>
-      <p class="card-text">
-      <p>{{ student.email }}</p>
-      <p>{{ student.phone }}</p>
-      </p>
-      <a href="#" class="btn btn-warning">Edit</a>
-      <a href="#" class="btn btn-danger">Delete</a>
-    </div>
-  </div>
-
-  {% endfor %}
-</div>
 
   <form class="container" method="post" enctype="multipart/form-data" novalidate>
     {% csrf_token %}

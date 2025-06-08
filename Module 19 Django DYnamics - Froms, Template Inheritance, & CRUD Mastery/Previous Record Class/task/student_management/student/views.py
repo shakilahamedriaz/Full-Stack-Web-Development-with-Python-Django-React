@@ -1,6 +1,7 @@
-from django.shortcuts import render , HttpResponse
+from django.shortcuts import render , HttpResponse, redirect
 from .import models
 from . import forms
+
 # Create your views here.
 
 # There are three types of froms in Django
@@ -43,19 +44,21 @@ from . import forms
 
 
 # This is for Model Forms
-def home(request):
+def create_student(request):
     if request.method == 'POST':  #User post requrest korche
         form = forms.StudentForm(request.POST, request.FILES)  #Form er object create korlam / user post request caputre korlam
         if form.is_valid():          # user data valid or not
             form.save()
-            return HttpResponse('Data saved successfully') #saved
+            return redirect('home') #saved
+            
         
     else:
         form = forms.StudentForm()
-    return render(request, 'student/index.html', {'form': form}) 
+    return render(request, 'student/create_student.html', {'form': form}) 
 
  #User get request korche
 
-def student_list(request):
+def home(request):
     students = models.Student.objects.all()  #All data fetch korlam
     return render(request, 'student/index.html', {'students': students})  #data ke template e pathalam
+
