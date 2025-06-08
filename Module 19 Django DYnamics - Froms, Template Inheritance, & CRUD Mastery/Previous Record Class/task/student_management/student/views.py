@@ -54,11 +54,39 @@ def create_student(request):
         
     else:
         form = forms.StudentForm()
-    return render(request, 'student/create_student.html', {'form': form}) 
+    return render(request, 'student/create_edit_student.html', {'form': form}) 
 
  #User get request korche
 
 def home(request):
     students = models.Student.objects.all()  #All data fetch korlam
     return render(request, 'student/index.html', {'students': students})  #data ke template e pathalam
+
+def update_student(request, id):
+    student = models.Student.objects.get(id=id)
+    form = forms.StudentForm(instance=student)  # user er ager data diye form fill up korlam
+    # form = forms.StudentForm
+
+    if request.method == 'POST':  # 1. user post request koreche
+        form = forms.StudentForm(request.POST, request.FILES, instance=student)  # 2. user er post data & file ashche
+        if form.is_valid():  # 3. user input validation kortechi
+            form.save()  # 4. user input save korlam
+            return redirect('home')
+
+    return render(request, 'student/create_edit_student.html', {'form': form, 'edit': True})
+
+    
+def update_student(request, id):
+    student = models.Student.objects.get(id=id)
+    form = forms.StudentForm(instance=student)  # user er ager data diye form fill up korlam
+    # form = forms.StudentForm
+
+    if request.method == 'POST':  # 1. user post request koreche
+        form = forms.StudentForm(request.POST, request.FILES, instance=student)  # 2. user er post data & file ashche
+        if form.is_valid():  # 3. user input validation kortechi
+            form.save()  # 4. user input save korlam
+            return redirect('home')
+
+    return render(request, 'student/create_edit_student.html', {'form': form, 'edit': True})
+
 

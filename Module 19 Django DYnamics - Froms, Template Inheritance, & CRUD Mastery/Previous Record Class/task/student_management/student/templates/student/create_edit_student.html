@@ -96,7 +96,11 @@
     <button type="submit" class="btn btn-primary">Submit</button>
   </form> -->
 
-  <h1 class="container" >Create New Student</h1>
+  {% if edit %}
+      <h1 class="py-3 container" >Edit Student Data</h1>
+  {% else %}
+      <h1 class="py-3 container" >Student List</h1>
+  {% endif %}
 
 
   <form class="container" method="post" enctype="multipart/form-data" novalidate>
