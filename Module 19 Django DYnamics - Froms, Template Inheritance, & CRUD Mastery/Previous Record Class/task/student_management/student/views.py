@@ -90,3 +90,8 @@ def update_student(request, id):
     return render(request, 'student/create_edit_student.html', {'form': form, 'edit': True})
 
 
+def delete_student(request, id):
+    student = models.Student.objects.get(id=id) #id = id wala student ke amra khuje ber korlam, tar object pelam
+    student.delete()  #oi student object ke delete korlam
+    return redirect('home') #successfully delete hoyeche bole home page e redirect korlam
+   
