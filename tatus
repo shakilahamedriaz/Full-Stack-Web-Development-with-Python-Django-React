@@ -1,0 +1,275 @@
+[33mcommit 9b22959e8c839e3e3fa6975f5077b625e1292dcb[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Tue Jun 10 22:39:42 2025 +0600
+
+    add update
+
+[33mcommit 97ca0f1c5354c27d0712909fb5f2cbba05e9ac91[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Mon Jun 9 22:24:56 2025 +0700
+
+    add modification
+
+[33mcommit 489e6e58fe4e0a7e96748ef356a649d8e0ea4e24[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Mon Jun 9 01:10:45 2025 +0700
+
+    add, CR form CRUD
+
+[33mcommit faf1e16e6cb7802bbc66c824e3b4237b6085b7de[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Sun Jun 8 23:23:56 2025 +0700
+
+    url redirect completed
+
+[33mcommit 391856d6f4587528913e39f88a33df1fb4e7aee7[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Sat Jun 7 23:14:55 2025 +0600
+
+    incomplete url redirect
+
+[33mcommit 0ac3c8b00c5c15988381b7e965bb9b49a08eede5[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Sat Jun 7 02:14:12 2025 +0600
+
+    add show media file and data from backend
+
+[33mcommit ce008777878b70353e49788d5f512d137290813a[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Fri Jun 6 18:08:47 2025 +0600
+
+    resolve pass hiding method
+
+[33mcommit dc0374ec660ca8badf550896ef5e9b5adfa70f5f[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Thu Jun 5 22:34:38 2025 +0600
+
+    add from using django
+
+[33mcommit 964cedb2dbb15ad807a519f64c10e6faf32218bf[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Thu Jun 5 19:06:52 2025 +0600
+
+    add media file to database
+
+[33mcommit 10a39a344ac3cfa95a3cf916bbeea7c805f76797[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Thu Jun 5 03:59:25 2025 +0600
+
+    add Connect with Database using from
+    
+    from data to database
+
+[33mcommit c08f1f539a2e35100b137fa4f9c790601950b17d[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Wed Jun 4 23:50:22 2025 +0600
+
+    add modification
+
+[33mcommit c2710d3013f065c0d4c44f4d1be476cbca1b08a8[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Tue Jun 3 02:22:46 2025 +0600
+
+    add django from api
+
+[33mcommit f705bc53b4f259c069f25e38e3e46b99f7583272[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Mon Jun 2 23:05:46 2025 +0600
+
+    add models in py
+
+[33mcommit 47867da9a425539394a2468e850f40ed6a75d892[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Sun Jun 1 23:08:08 2025 +0600
+
+    add work with static file from inside the app
+
+[33mcommit d309ab60a8390cdec4f1b37d9d3f5026be057636[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Sun Jun 1 19:56:12 2025 +0600
+
+    add update info
+
+[33mcommit ac154a74f945d4f8a03589ad2170838b4095f79f[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Sat May 31 21:39:12 2025 +0600
+
+    add, --nothing important
+
+[33mcommit 10fca6ba89cd5246523c15331610c11084ffeeb8[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Thu May 29 21:08:26 2025 +0600
+
+    remove --
+
+[33mcommit 66e2ddc228084a44123d4da88febfc225aea758c[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Thu May 29 00:27:31 2025 +0600
+
+    remove unnecessary files
+
+[33mcommit 934ff7bed552684bc4b05ae66551f2011c7f0cd5[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Wed May 28 18:15:34 2025 +0600
+
+    add Django Template Languag
+
+[33mcommit f7db0fda9dfbf94a75f105478db4cea5a1948c0e[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Wed May 28 02:54:55 2025 +0600
+
+    add Rendering template from inside on apps
+
+[33mcommit 80ff06c0aea0afd7acfe6f5972ad6a1bae248441[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Tue May 27 03:12:15 2025 +0600
+
+    templete rendering
+    
+    should be del, venv file is more size
+
+[33mcommit ebd502d392d3c7fdff2a9f61aa571d49e2435327[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Sun May 25 22:41:07 2025 +0600
+
+    django model, view, templete basic
+
+[33mcommit a5b67ee563b541d44412b82fafa554078cc85615[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Sat May 24 15:25:23 2025 +0600
+
+    creating apps in django
+
+[33mcommit db5fad65db3bce806c318da162bd3f9399050467[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Fri May 23 17:46:11 2025 +0600
+
+    django installation and http response
+
+[33mcommit e15792962d554812b9628957ee14a65c00ec647e[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Thu May 22 23:42:16 2025 +0600
+
+    update a l mod
+
+[33mcommit 25cbef1e32854dcedb61675286d361dfb533da36[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Wed May 21 23:39:12 2025 +0600
+
+    updated
+
+[33mcommit 627a50fd8832cd6be7970d32d19076da5f5002d7[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Tue May 20 23:56:37 2025 +0600
+
+    updaed
+
+[33mcommit af0b59dcd7066ad191f41f1c74821d7ecf7af0ea[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Tue May 20 19:32:49 2025 +0600
+
+    updated
+
+[33mcommit ae5899cf9730bca75f622563ddfc8685cf0ef6a1[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Mon May 19 20:51:48 2025 +0600
+
+    task completed
+
+[33mcommit cbc771250d01489d2c76897b3955130d9ac65b8e[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Sun May 18 22:30:34 2025 +0600
+
+    updated
+
+[33mcommit a1e43b1e5863b5652c14cdd4cbd04f8009a9e460[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Sat May 17 19:27:48 2025 +0600
+
+    ES6, Promises and Async Programming concept
+
+[33mcommit 6ba74415dfeaadb04de3207c00c4906dd860cdbe[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Thu May 15 23:34:19 2025 +0600
+
+    updated
+
+[33mcommit 5039dab40c347e454f0da343ff8aa41394ab5286[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Wed May 14 16:56:47 2025 +0600
+
+    updated
+
+[33mcommit 9cadbe428a2e0d4ad15592e91870e48def013996[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Wed May 14 02:53:36 2025 +0600
+
+    updated
+
+[33mcommit 942bc702a5165284f5945b96d5ec637094366547[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Wed May 14 00:47:03 2025 +0600
+
+    updated
+
+[33mcommit d2c68270af519b3e376c69fdcd06148b43fac391[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Fri May 9 23:32:53 2025 +0600
+
+    dom concept init
+
+[33mcommit 1716fdc3fae1da149971cea0cc75bdbffee96a05[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Fri May 9 16:26:17 2025 +0600
+
+    js all concept noted
+
+[33mcommit a8a54e492cdcfeb250e8d257a7a3a4e6d8915729[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Fri May 9 01:25:15 2025 +0600
+
+    javascrip flashback noted
+
+[33mcommit a32de4bf1025e1e54dfe0428843d8ced9f0479d4[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Thu May 8 21:49:14 2025 +0600
+
+    js flashback noted
+
+[33mcommit 49e4f8228032a85ad9fe956adaed5a11973ea649[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Wed May 7 18:43:48 2025 +0600
+
+    advanced talwind css noted with examples
+
+[33mcommit ce38551ab14d983ef986a9c2582036bb1ae973da[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Wed May 7 03:42:57 2025 +0600
+
+    --
+
+[33mcommit ec6c44cc0f3d0733ed5cd46db6205167427daf73[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Tue May 6 16:50:31 2025 +0600
+
+    positionin-relative, absalute, fixed, stiky noted with example
+
+[33mcommit 4c2a66bf14e02a9eacd24c65e696747868a551e3[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Tue May 6 03:48:42 2025 +0600
+
+    positioning noted
+
+[33mcommit 074867636f53a286d0507a4d1b6c70f7d29f4de4[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Mon May 5 18:35:27 2025 +0600
+
+    related min, mx, padding, margin, concept updated
+
+[33mcommit 8a8846e13d28ab6e3a53d9c7e053ffcf3088a996[m
+Author: shakilahamedriaz <shakilahamedriaz@gmail.com>
+Date:   Mon May 5 16:43:37 2025 +0600
+
+    flex-system
+
+[33mcommit f28494a458da715a573ea659a509090d169aa3ff[

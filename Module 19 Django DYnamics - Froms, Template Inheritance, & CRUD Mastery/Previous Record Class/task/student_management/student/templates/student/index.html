@@ -112,25 +112,30 @@
 
   <h1 class="py-3 container">Student List</h1>
 
-  <div class="d-flex flex-wrap justify-content-between container p-5">
-    {% for student in students %}
-    <div class="card col-3" style="width: 18rem;">
-      <img src="{{student.photos.url}}" class="card-img-top" alt="{{ student.name }}'s photo here" , width="200" >
-      
-    <div class=" card-body">
-      <h5 class="card-title">{{ student.name }}</h5>
-      <p class="card-text">
-
+<div class="d-flex flex-wrap justify-content-between container p-5">
+{% for student in students %}
+<div class="card col-3" style="width: 18rem;">
+  
+  {% comment %} Make sure the student object actually has a photo {% endcomment %}
+  {% if student.photo %}
+    <img src="{{ student.photo.url }}" class="card-img-top" alt="{{ student.name }}'s photo here">
+  {% else %}
+    {% comment %} Optional: Show a default image if no photo exists {% endcomment %}
+    <img src="{% static 'path/to/your/default/image.png' %}" class="card-img-top" alt="Default photo">
+  {% endif %}
+    
+  <div class="card-body">
+    <h5 class="card-title">{{ student.name }}</h5>
+    <p class="card-text">
       <p>Roll : {{ student.id }}</p>
       <p>Email : {{ student.email }}</p>
       <p>Phone : {{ student.phone }}</p>
-      </p>
-      <a href="{% url 'update_student' id=student.id %}" class="btn btn-warning">Edit</a>
-      <a href="{% url 'delete_student' id=student.id %}" class="btn btn-danger">Delete</a>
-    </div>
+    </p>
+    <a href="{% url 'update_student' id=student.id %}" class="btn btn-warning">Edit</a>
+    <a href="{% url 'delete_student' id=student.id %}" class="btn btn-danger">Delete</a>
   </div>
-
-  {% endfor %}
+</div>
+{% endfor %}
   </div>
 
 

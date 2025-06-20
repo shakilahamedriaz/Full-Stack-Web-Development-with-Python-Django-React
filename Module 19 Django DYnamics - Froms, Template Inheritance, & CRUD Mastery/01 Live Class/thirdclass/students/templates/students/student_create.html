@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration</title>
+</head>
+<body>
+    <h2>Student Form</h2>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        <label for="id_name">Name:</label>
+        {{ form.name }} <br><br>
+
+        <label for="id_age">Age:</label>
+        {{ form.age }} <br><br>
+
+        <label for="id_email">Email:</label>
+        {{ form.email }} <br><br>
+
+        <label for="id_profile_pic">Profile Picture:</label>
+        {{ form.profile_pic }} <br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
