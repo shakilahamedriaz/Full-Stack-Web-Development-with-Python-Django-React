@@ -1,6 +1,7 @@
 from django.shortcuts import render , HttpResponse, redirect
 from .import models
 from . import forms
+from django.contrib import messages
 
 # Create your views here.
 
@@ -49,6 +50,7 @@ def create_student(request):
         form = forms.StudentForm(request.POST, request.FILES)  #Form er object create korlam / user post request caputre korlam
         if form.is_valid():          # user data valid or not
             form.save()
+            messages.add_message(request, messages.SUCCESS, 'Student Created successfully.')
             return redirect('home') #saved
             
         
@@ -71,6 +73,7 @@ def update_student(request, id):
         form = forms.StudentForm(request.POST, request.FILES, instance=student)  # 2. user er post data & file ashche
         if form.is_valid():  # 3. user input validation kortechi
             form.save()  # 4. user input save korlam
+            messages.add_message(request, messages.SUCCESS, 'Student Updated successfully.')
             return redirect('home')
 
     return render(request, 'student/create_edit_student.html', {'form': form, 'edit': True})
@@ -85,6 +88,7 @@ def update_student(request, id):
         form = forms.StudentForm(request.POST, request.FILES, instance=student)  # 2. user er post data & file ashche
         if form.is_valid():  # 3. user input validation kortechi
             form.save()  # 4. user input save korlam
+            messages.add_message(request, messages.SUCCESS, 'Student Updated successfully.')
             return redirect('home')
 
     return render(request, 'student/create_edit_student.html', {'form': form, 'edit': True})
@@ -93,5 +97,6 @@ def update_student(request, id):
 def delete_student(request, id):
     student = models.Student.objects.get(id=id) #id = id wala student ke amra khuje ber korlam, tar object pelam
     student.delete()  #oi student object ke delete korlam
+    messages.add_message(request, messages.SUCCESS, 'Student Delete successfully.')
     return redirect('home') #successfully delete hoyeche bole home page e redirect korlam
    

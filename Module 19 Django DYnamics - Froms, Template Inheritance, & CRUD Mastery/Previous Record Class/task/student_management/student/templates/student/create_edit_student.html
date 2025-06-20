@@ -97,8 +97,17 @@
     <button type="submit" class="btn btn-primary">Submit</button>
   </form> -->
 
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
   {% if edit %}
-      <h1 class="py-3 container" >Edit Student Information</h1>
+      <h1 class="py-3 container" >Edit Student Data</h1>
   {% else %}
       <h1 class="py-3 container" >Student List</h1>
   {% endif %}
