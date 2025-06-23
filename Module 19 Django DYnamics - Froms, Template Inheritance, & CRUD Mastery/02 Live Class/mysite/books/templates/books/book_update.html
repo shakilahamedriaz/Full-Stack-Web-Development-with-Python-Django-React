@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Update Book Data
+{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center">
+    <div class="card p-4 shadow" style="width: 40rem;">
+        <h2 class="text-center mb-4">✏️ Update Book</h2>
+
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-warning btn-lg">Update Book</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
