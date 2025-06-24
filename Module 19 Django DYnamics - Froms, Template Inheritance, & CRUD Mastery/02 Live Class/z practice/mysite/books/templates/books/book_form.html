@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if book %}Edit Book - BookVault{% else %}Add New Book - BookVault{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="bg-white p-6 md:p-8 card max-w-2xl mx-auto">
+    <h1 class="text-3xl font-extrabold text-gray-900 mb-6 text-center">
+        {% if book %}Edit Book{% else %}Add New Book{% endif %}
+    </h1>
+    <form method="post" enctype="multipart/form-data" class="space-y-6">
+        {% csrf_token %}
+
+        {% for field in form %}
+            <div class="mb-4">
+                <label for="{{ field.id_for_label }}" class="block text-gray-700 text-sm font-medium mb-2">{{ field.label }}</label>
+                {{ field }}
+                {% if field.help_text %}
+                    <p class="text-gray-500 text-xs mt-1">{{ field.help_text }}</p>
+                {% endif %}
+                {% for error in field.errors %}
+                    <p class="text-red-500 text-sm mt-1">{{ error }}</p>
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+        <div class="flex justify-end space-x-4 mt-6">
+            <a href="{% url 'book-list' %}" class="inline-flex items-center px-6 py-3 bg-gray-200 text-gray-800 text-lg font-semibold btn hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50">
+                Cancel
+            </a>
+            <button type="submit" class="inline-flex items-center px-6 py-3 bg-green-600 text-white text-lg font-semibold btn hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50">
+                {% if book %}Update Book{% else %}Create Book{% endif %}
+            </button>
+        </div>
+    </form>
+</div>
+{% endblock %}
