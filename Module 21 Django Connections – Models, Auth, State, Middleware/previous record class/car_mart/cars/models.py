@@ -28,3 +28,16 @@ class CarModel(models.Model):
 # foreign key --> many to one relationship
     def __str__(self):
         return self.name
+    
+
+#many to many relationship
+
+#electric --> kon kon car use kore (eta amader use case)
+#car model -->kon kon fuel ke use kore 
+
+class FuelType(models.Model):
+    name = models.CharField(max_length=100)
+    car_models = models.ManyToManyField(CarModel, related_name='fuel_types')
+
+    def __str__(self):
+        return self.name
