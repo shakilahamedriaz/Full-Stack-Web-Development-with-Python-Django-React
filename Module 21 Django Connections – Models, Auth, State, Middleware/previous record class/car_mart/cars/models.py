@@ -13,7 +13,7 @@ class CarCompany(models.Model):
         return self.name
 
 
-class CEO(models.Model):
+class Ceo(models.Model):
     name = models.CharField(max_length=100)
     car_company = models.OneToOneField(CarCompany, on_delete=models.CASCADE, related_name='ceo')
 

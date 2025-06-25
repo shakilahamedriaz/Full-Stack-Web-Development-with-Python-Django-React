@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Details</title>
+    <style>
+        /* Optional: Basic styling for better presentation */
+        body {
+            font-family: sans-serif;
+            line-height: 1.6;
+            margin: 2em;
+        }
+        .car-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Car List</h1>
+
+    <!-- Start of the code from your image -->
+    {% for car in car_details %}
+            <p><strong>ID:</strong> {{car.id}}</p>
+            <p><strong>Name:</strong> {{car.car_name}}</p>
+            <p><strong>Company:</strong> {{car.car_company}}</p>
+            <p><strong>CEO:</strong> {{car.ceo_name.name}}</p>
+            <p><strong>Fuel Types:</strong> {{car.fuel_names}}</p>
+    {% endfor %}
+    <!-- End of the code from your image -->
+
+</body>
+</html>
