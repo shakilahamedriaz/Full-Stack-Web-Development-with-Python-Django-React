@@ -11,6 +11,8 @@ urlpatterns = [
   path('edit/<int:id>/', views.StudentUpdate.as_view(), name = "update_student"), #class based view
   #path('delete/<int:id>/', views.delete_student , name = "delete_student"), #function based view
   path('delete/<int:id>/', views.StudentDelete.as_view(), name = "delete_student"), #class based view
+  
+  path('signup/', views.signup, name = "signup"),
 ]
 
 

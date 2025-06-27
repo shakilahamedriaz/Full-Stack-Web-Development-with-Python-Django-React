@@ -136,3 +136,23 @@ class StudentDelete(DeleteView):
     def delete(self, request, *args, **kwargs):
         messages.add_message(self.request, messages.SUCCESS, 'Student Deleted successfully.')
         return super().delete(request, *args, **kwargs)
+
+
+
+
+# def signup(request):
+#     form = forms.SignUpForm()
+
+#     return render(request, 'student/auth_form.html', {'form': form})
+
+
+def signup(request):
+    if request.method == 'POST':
+        form = forms.SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request, messages.SUCCESS, 'Account Created Successfully')
+            return redirect('home')
+    else:
+        form = forms.SignUpForm()
+    return render(request, 'student/auth_form.html', {'form': form})
