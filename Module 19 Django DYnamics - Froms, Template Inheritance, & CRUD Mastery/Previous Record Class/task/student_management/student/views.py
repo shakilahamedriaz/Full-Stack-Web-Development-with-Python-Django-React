@@ -6,6 +6,16 @@ from django.views.generic import CreateView, ListView
 from django.views.generic import UpdateView
 from django.urls import reverse_lazy
 from django.views.generic import DeleteView
+
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import authenticate, login, logout 
+
+
+
+
+
+
+
 # Create your views here.
 
 # There are three types of froms in Django
@@ -156,3 +166,25 @@ def signup(request):
     else:
         form = forms.SignUpForm()
     return render(request, 'student/auth_form.html', {'form': form})
+
+
+
+def user_login(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(data = request.POST)
+        if form.is_valid():
+            print(form.cleaned_data)
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                messages.add_message(request, messages.SUCCESS, 'Login Successful')
+                return redirect('home')
+            else:
+                messages.add_message(request, messages.ERROR, 'Invalid credentials')
+        else:
+            messages.add_message(request, messages.ERROR, 'Invalid credentials')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'student/auth_form.html', {'form': form})                    

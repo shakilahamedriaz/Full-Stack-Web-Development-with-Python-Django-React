@@ -13,6 +13,7 @@ urlpatterns = [
   path('delete/<int:id>/', views.StudentDelete.as_view(), name = "delete_student"), #class based view
   
   path('signup/', views.signup, name = "signup"),
+  path('login/', views.user_login, name = "user_login"),
 ]
 
 
