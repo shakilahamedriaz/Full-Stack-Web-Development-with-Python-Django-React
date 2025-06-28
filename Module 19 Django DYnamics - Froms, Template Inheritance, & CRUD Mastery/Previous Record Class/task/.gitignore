@@ -1,2 +1,6 @@
-__pycache__/
+env/
+venv/
 *.pyc
+__pycache__/
+*.sqlite3
+*.log

@@ -1,77 +1,31 @@
-from django.shortcuts import render , HttpResponse, redirect
+# student management application
+
+# views.py:
+# ... (your existing imports)
+from django.shortcuts import render, HttpResponse, redirect
 from .import models
 from . import forms
 from django.contrib import messages
-from django.views.generic import CreateView, ListView
-from django.views.generic import UpdateView
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from django.views.generic import DeleteView
-
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import authenticate, login, logout 
+from django.contrib.auth import authenticate, login, logout
 
+# ... (CreateStudent, StudentLists, StudentUpdate, StudentDelete classes are fine) ...
+# NOTE: Your Class-Based Views for Create, List, Update, and Delete are well-written and need no changes.
+# The function-based views below are also kept for reference or use.
 
-
-
-
-
-
-# Create your views here.
-
-# There are three types of froms in Django
- #HTML Form
- #From Api
- #MODEL Form
-  
-# This is for HTML Forms
-# def home(request):
-#     print(request.POST)
-#     if request.method == 'POST':
-#         name = request.POST.get('name')
-#         email = request.POST.get('email')
-#         phone = request.POST.get('phone')
-#         password = request.POST.get('password')
-#         checkbox = request.POST.get('checkbox')
-#         photo = request.FILES.get('photo')
-
-#         if checkbox == 'on':
-#             checkbox = True
-#         else:
-#             checkbox = False
-
-#         student = models.Student(
-#             name=name,
-#             email=email,
-#             phone=phone,
-#             password=password,
-#             checkbox=checkbox,
-#             photo=photo
-#         ) # student classer ekta object create korlam
-#         student.save() #student table ekt record make korlam
-#         #return render(request, 'student/student.html')
-#         return HttpResponse('Data saved successfully')
-    
-        
-#     return render(request, 'student/index.html')
-
-
-
-
-# This is for Model Forms
 def create_student(request):
-    if request.method == 'POST':  #User post requrest korche
-        form = forms.StudentForm(request.POST, request.FILES)  #Form er object create korlam / user post request caputre korlam
-        if form.is_valid():          # user data valid or not
+    if request.method == 'POST':
+        form = forms.StudentForm(request.POST, request.FILES)
+        if form.is_valid():
             form.save()
             messages.add_message(request, messages.SUCCESS, 'Student Created successfully.')
-            return redirect('home') #saved
-            
-        
+            return redirect('home')
     else:
         form = forms.StudentForm()
-    return render(request, 'student/create_edit_student.html', {'form': form}) 
+    return render(request, 'student/create_edit_student.html', {'form': form})
 
-#class view
 class CreateStudent(CreateView):
     form_class = forms.StudentForm
     success_url = reverse_lazy('home')
@@ -81,42 +35,33 @@ class CreateStudent(CreateView):
         messages.add_message(self.request, messages.SUCCESS, 'Student Created Successfully')
         return super().form_valid(form)
 
-
-#for function based view for listing students
 def home(request):
-    students = models.Student.objects.all()  #All data fetch korlam
-    return render(request, 'student/index.html', {'students': students})  #data ke template e pathalam
+    students = models.Student.objects.all()
+    return render(request, 'student/index.html', {'students': students})
 
-
-#for class based view for listing students
 class StudentLists(ListView):
     model = models.Student
     template_name = 'student/index.html'
     context_object_name = 'students'
 
-
-#this function based view is for updating student data
 def update_student(request, id):
     student = models.Student.objects.get(id=id)
-    form = forms.StudentForm(instance=student)  # user er ager data diye form fill up korlam
-    # form = forms.StudentForm
-
-    if request.method == 'POST':  # 1. user post request koreche
-        form = forms.StudentForm(request.POST, request.FILES, instance=student)  # 2. user er post data & file ashche
-        if form.is_valid():  # 3. user input validation kortechi
-            form.save()  # 4. user input save korlam
+    form = forms.StudentForm(instance=student)
+    if request.method == 'POST':
+        form = forms.StudentForm(request.POST, request.FILES, instance=student)
+        if form.is_valid():
+            form.save()
             messages.add_message(request, messages.SUCCESS, 'Student Updated successfully.')
             return redirect('home')
-
     return render(request, 'student/create_edit_student.html', {'form': form, 'edit': True})
 
-#class based view for updating student data
 class StudentUpdate(UpdateView):
     model = models.Student
     form_class = forms.StudentForm
     template_name = 'student/create_edit_student.html'
-    success_url = reverse_lazy('home')  #successfully update hoyeche bole home page e redirect korlam
-    pk_url_kwarg = 'id'  #URL theke id capture korar jonno
+    success_url = reverse_lazy('home')
+    pk_url_kwarg = 'id'
+    
     def form_valid(self, form):
         messages.add_message(self.request, messages.SUCCESS, 'Student Updated successfully.')
         return super().form_valid(form)
@@ -126,65 +71,61 @@ class StudentUpdate(UpdateView):
         context['edit'] = True
         return context
 
-
-#this function based view is for deleting student data
 def delete_student(request, id):
-    student = models.Student.objects.get(id=id) #id = id wala student ke amra khuje ber korlam, tar object pelam
-    student.delete()  #oi student object ke delete korlam
-    messages.add_message(request, messages.SUCCESS, 'Student Delete successfully.')
-    return redirect('home') #successfully delete hoyeche bole home page e redirect korlam
+    student = models.Student.objects.get(id=id)
+    student.delete()
+    messages.add_message(request, messages.SUCCESS, 'Student Deleted successfully.')
+    return redirect('home')
 
-
-
-# class based view for deleting student data
 class StudentDelete(DeleteView):
     model = models.Student
-    pk_url_kwarg = 'id'  #URL theke id capture korar jonno
+    pk_url_kwarg = 'id'
     success_url = reverse_lazy('home')
     template_name = 'student/delete_student.html'
 
+    def form_valid(self, form):
+        # Overriding form_valid to add a message, as DeleteView doesn't call it by default.
+        # A better place is the delete() method as you correctly did.
+        # This is just for info, your original code was correct.
+        return super().form_valid(form)
+        
     def delete(self, request, *args, **kwargs):
-        messages.add_message(self.request, messages.SUCCESS, 'Student Deleted successfully.')
+        messages.success(self.request, 'Student Deleted successfully.')
         return super().delete(request, *args, **kwargs)
-
-
-
-
-# def signup(request):
-#     form = forms.SignUpForm()
-
-#     return render(request, 'student/auth_form.html', {'form': form})
-
 
 def signup(request):
     if request.method == 'POST':
         form = forms.SignUpForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.add_message(request, messages.SUCCESS, 'Account Created Successfully')
-            return redirect('home')
+            messages.success(request, 'Account Created Successfully. Please Login.')
+            return redirect('user_login') # Redirect to login after successful signup
     else:
         form = forms.SignUpForm()
     return render(request, 'student/auth_form.html', {'form': form})
 
-
-
 def user_login(request):
     if request.method == 'POST':
-        form = AuthenticationForm(data = request.POST)
+        form = AuthenticationForm(request=request, data=request.POST) # Pass request to AuthenticationForm
         if form.is_valid():
-            print(form.cleaned_data)
             username = form.cleaned_data.get('username')
             password = form.cleaned_data.get('password')
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                messages.add_message(request, messages.SUCCESS, 'Login Successful')
+                messages.success(request, 'Login Successful')
                 return redirect('home')
             else:
-                messages.add_message(request, messages.ERROR, 'Invalid credentials')
-        else:
-            messages.add_message(request, messages.ERROR, 'Invalid credentials')
+                messages.error(request, 'Invalid username or password.')
+        # FIX: Removed the redundant 'else' block here. If the form is invalid,
+        # Django and Crispy Forms will automatically display the specific errors
+        # (e.g., "This field is required.").
     else:
         form = AuthenticationForm()
-    return render(request, 'student/auth_form.html', {'form': form})                    
+    return render(request, 'student/auth_form.html', {'form': form, 'type': 'Login'})
+
+# NEW: Added a logout view
+def user_logout(request):
+    logout(request)
+    messages.success(request, 'You have been successfully logged out.')
+    return redirect('home')
