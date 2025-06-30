@@ -11,22 +11,24 @@ from django.urls import reverse_lazy
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 
+
+from django.contrib.auth.mixins import LoginRequiredMixin
 # ... (CreateStudent, StudentLists, StudentUpdate, StudentDelete classes are fine) ...
 # NOTE: Your Class-Based Views for Create, List, Update, and Delete are well-written and need no changes.
 # The function-based views below are also kept for reference or use.
 
-def create_student(request):
-    if request.method == 'POST':
-        form = forms.StudentForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            messages.add_message(request, messages.SUCCESS, 'Student Created successfully.')
-            return redirect('home')
-    else:
-        form = forms.StudentForm()
-    return render(request, 'student/create_edit_student.html', {'form': form})
+# def create_student(request):
+#     if request.method == 'POST':
+#         form = forms.StudentForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             form.save()
+#             messages.add_message(request, messages.SUCCESS, 'Student Created successfully.')
+#             return redirect('home')
+#     else:
+#         form = forms.StudentForm()
+#     return render(request, 'student/create_edit_student.html', {'form': form})
 
-class CreateStudent(CreateView):
+class CreateStudent(LoginRequiredMixin,CreateView):
     form_class = forms.StudentForm
     success_url = reverse_lazy('home')
     template_name = 'student/create_edit_student.html'
@@ -35,14 +37,17 @@ class CreateStudent(CreateView):
         messages.add_message(self.request, messages.SUCCESS, 'Student Created Successfully')
         return super().form_valid(form)
 
+
 def home(request):
     students = models.Student.objects.all()
     return render(request, 'student/index.html', {'students': students})
+
 
 class StudentLists(ListView):
     model = models.Student
     template_name = 'student/index.html'
     context_object_name = 'students'
+
 
 def update_student(request, id):
     student = models.Student.objects.get(id=id)
@@ -55,7 +60,8 @@ def update_student(request, id):
             return redirect('home')
     return render(request, 'student/create_edit_student.html', {'form': form, 'edit': True})
 
-class StudentUpdate(UpdateView):
+
+class StudentUpdate(LoginRequiredMixin,UpdateView):
     model = models.Student
     form_class = forms.StudentForm
     template_name = 'student/create_edit_student.html'
@@ -71,11 +77,13 @@ class StudentUpdate(UpdateView):
         context['edit'] = True
         return context
 
+
 def delete_student(request, id):
     student = models.Student.objects.get(id=id)
     student.delete()
     messages.add_message(request, messages.SUCCESS, 'Student Deleted successfully.')
     return redirect('home')
+
 
 class StudentDelete(DeleteView):
     model = models.Student
@@ -123,6 +131,7 @@ def user_login(request):
     else:
         form = AuthenticationForm()
     return render(request, 'student/auth_form.html', {'form': form, 'type': 'Login'})
+
 
 # NEW: Added a logout view
 def user_logout(request):

@@ -1,0 +1,11 @@
+Django>=4.0
+pytz
+sqlparse
+djangorestframework
+django-cors-headers
+django-crispy-forms
+crispy-bootstrap5
+Pillow
+gunicorn
+whitenoise
+python-dotenv
