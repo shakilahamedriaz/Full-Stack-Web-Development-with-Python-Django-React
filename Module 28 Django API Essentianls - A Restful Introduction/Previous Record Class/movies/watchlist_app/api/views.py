@@ -4,30 +4,8 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import get_object_or_404
+from rest_framework import generics
 
-
-
-# @api_view()
-# def movie_list(request):
-#     movies = models.MovieList.objects.all()  #python object
-#     serializer = serializers.MovieListSerializer(movies, many=True) #python object ke jeson e covert korbe
-#     return Response(serializer.data)
-
-
-
-@api_view(['GET', 'POST'])
-def movie_list(request):
-    if request.method == 'GET':
-        movies = models.MovieList.objects.all()  #python object
-        serializer = serializers.MovieListSerializer(movies, many=True) #python object ke jeson e covert korbe
-        return Response(serializer.data)
-
-    elif request.method == 'POST':
-        serializer = serializers.MovieListSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_NOT_FOUND)
 
 
 #GET --> Read (Retrieve a list of movies)
@@ -37,31 +15,78 @@ def movie_list(request):
 
 #PATCH --> Update Specific part (partial object ke pathano hoy)
 
-@api_view(['GET', 'PUT', 'PATCH', 'DELETE'])
-def movie_detail(request, pk):
-    movie = get_object_or_404(models.MovieList, pk=pk)
-
-    if request.method == 'GET':
-        serializer = serializers.MovieListSerializer(movie)
-        return Response(serializer .data, status=status.HTTP_200_OK)
-
-    elif request.method == 'PUT':
-        serializer = serializers.MovieListSerializer(movie, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        else:
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    elif request.method == 'PATCH':
-        serializer = serializers.MovieListSerializer(movie, data=request.data, partial=True) # partial update
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    elif request.method == 'DELETE':
-        movie.delete()
-        return Response({'message': 'Movie deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
 
 
+
+
+
+# Function Based Views (FBV):
+
+# @api_view()
+# def movie_list(request):
+#     movies = models.MovieList.objects.all()  #python object
+#     serializer = serializers.MovieListSerializer(movies, many=True) #python object ke jeson e covert korbe
+#     return Response(serializer.data)
+
+
+
+# @api_view(['GET', 'POST'])
+# def movie_list(request):
+#     if request.method == 'GET':
+#         movies = models.MovieList.objects.all()  #python object
+#         serializer = serializers.MovieListSerializer(movies, many=True) #python object ke jeson e covert korbe
+#         return Response(serializer.data)
+
+#     elif request.method == 'POST':
+#         serializer = serializers.MovieListSerializer(data=request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data, status=status.HTTP_201_CREATED)
+#         return Response(serializer.errors, status=status.HTTP_400_NOT_FOUND)
+
+
+
+
+
+# @api_view(['GET', 'PUT', 'PATCH', 'DELETE'])
+# def movie_detail(request, pk):
+#     movie = get_object_or_404(models.MovieList, pk=pk)
+
+#     if request.method == 'GET':
+#         serializer = serializers.MovieListSerializer(movie)
+#         return Response(serializer .data, status=status.HTTP_200_OK)
+
+#     elif request.method == 'PUT':
+#         serializer = serializers.MovieListSerializer(movie, data=request.data)
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data, status=status.HTTP_200_OK)
+#         else:
+#             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+#     elif request.method == 'PATCH':
+#         serializer = serializers.MovieListSerializer(movie, data=request.data, partial=True) # partial update
+#         if serializer.is_valid():
+#             serializer.save()
+#             return Response(serializer.data, status=status.HTTP_200_OK)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+#     elif request.method == 'DELETE':
+#         movie.delete()
+#         return Response({'message': 'Movie deleted successfully'}, status=status.HTTP_204_NO_CONTENT)
+
+
+
+
+#  Class Based Views (CBV) with generics:
+
+# 1. List of movies and create a movie (GET, POST)
+class MovieListCreateView(generics.ListCreateAPIView):
+    queryset = models.MovieList.objects.all()
+    serializer_class = serializers.MovieListSerializer
+
+
+# 2. Retrieve, update, delete a movie (GET, PUT, PATCH, DELETE)
+class MovieDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = models.MovieList.objects.all()
+    serializer_class = serializers.MovieListSerializer
